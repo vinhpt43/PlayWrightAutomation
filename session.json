@@ -1,0 +1,109 @@
+{
+  "cookies": [
+    {
+      "name": "__cf_bm",
+      "value": "QYtE68dqS24q8q_WG58GFzYFffYBEOztkxSQtrpjFoQ-1747742145-1.0.1.1-hWKZog7Cx67KOx0G_GaYVNLD7sTE9wnulLvqr3XcjKY5AZfp8SheR6fX.2LN7n1.",
+      "domain": ".auth.mantu.com",
+      "path": "/",
+      "expires": 1747743946.276243,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "did",
+      "value": "s%3Av0%3A81fd6106-c3ce-4413-bf06-8d6e43e3f660%3A094e388346222c5d53a28566bd4bb72c0b67260a562f1c9b22f63d4a7df86593.PAJBaPHZ7ISgI3XBaproNm2P6atCCnIfW9AblOeUC8o",
+      "domain": "auth.mantu.com",
+      "path": "/",
+      "expires": 1779299749.274828,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "did_compat",
+      "value": "s%3Av0%3A81fd6106-c3ce-4413-bf06-8d6e43e3f660%3A094e388346222c5d53a28566bd4bb72c0b67260a562f1c9b22f63d4a7df86593.PAJBaPHZ7ISgI3XBaproNm2P6atCCnIfW9AblOeUC8o",
+      "domain": "auth.mantu.com",
+      "path": "/",
+      "expires": 1779299749.274975,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "auth0-mf",
+      "value": "_U9sGXQNvgkrWU2iC-cnPw.A2JJihz6feEpulFyhTjYdOPrGm_5rjC0sriLl6WsjXNHI5IeEdiiuuluAh4zjdY-qK49wxqxTuktN5aqxkhmfunDB1sinmEaHVALG-U3nMeIHtS8V21jkYeyaVnXTc7hLvo2m1J8XUQ7YV0azOIPbg.1747742151243.2592000000.yZ2UpvHi0suZAdvlvN_X-vSoIL7Yh4ED9Z1Z4APTpTI",
+      "domain": "auth.mantu.com",
+      "path": "/",
+      "expires": 1748346952.332069,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "auth0-mf_compat",
+      "value": "_U9sGXQNvgkrWU2iC-cnPw.A2JJihz6feEpulFyhTjYdOPrGm_5rjC0sriLl6WsjXNHI5IeEdiiuuluAh4zjdY-qK49wxqxTuktN5aqxkhmfunDB1sinmEaHVALG-U3nMeIHtS8V21jkYeyaVnXTc7hLvo2m1J8XUQ7YV0azOIPbg.1747742151243.2592000000.yZ2UpvHi0suZAdvlvN_X-vSoIL7Yh4ED9Z1Z4APTpTI",
+      "domain": "auth.mantu.com",
+      "path": "/",
+      "expires": 1748346952.332195,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "auth0",
+      "value": "s%3AhZOd-xyHq-cyIGYWSO-H0nLysEGo2U_b.9aCIpVQPp10T%2BEn4L81xfaRMED3D9uhdis%2F13dSgAO8",
+      "domain": "auth.mantu.com",
+      "path": "/",
+      "expires": 1747828552.437595,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "auth0_compat",
+      "value": "s%3AhZOd-xyHq-cyIGYWSO-H0nLysEGo2U_b.9aCIpVQPp10T%2BEn4L81xfaRMED3D9uhdis%2F13dSgAO8",
+      "domain": "auth.mantu.com",
+      "path": "/",
+      "expires": 1747828552.437656,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_legacy_auth0.qRUE4rs9KE7PbSvphQWes4C9PYQtukpu.is.authenticated",
+      "value": "true",
+      "domain": "am.intearp.mantu.com",
+      "path": "/",
+      "expires": 1747828552,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "auth0.qRUE4rs9KE7PbSvphQWes4C9PYQtukpu.is.authenticated",
+      "value": "true",
+      "domain": "am.intearp.mantu.com",
+      "path": "/",
+      "expires": 1747828552,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://am.intearp.mantu.com",
+      "localStorage": [
+        {
+          "name": "build",
+          "value": "__q_strn|20250520.1"
+        },
+        {
+          "name": "darkMode",
+          "value": "__q_bool|0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 // fixtures.js
 const { test: base, expect } = require('@playwright/test');
-const { GuardianUtils } = require('./GuardianUtils');
-const { CommonUtils } = require('./CommonUtils');
-const dataSet = require('./testData.json');
+const { GuardianUtils } = require('../API/GuardianUtils');
+const { CommonUtils } = require('../UI/CommonUtils');
+const dataSet = require('../data/testData.json');
 
 exports.test = base.extend({
   guardian: async ({ }, use) => {

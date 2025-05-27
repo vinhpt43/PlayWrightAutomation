@@ -2260,7 +2260,7 @@ const fakeAR2 = {
 };
 
 // myTest.spec.js
-const { test, expect } = require('../../utils/customFixture'); // Adjust path as needed
+const { test, expect } = require('../../utils/settings/customFixture'); // Adjust path as needed
 test('Go to AM 1', async ({ page, guardian, dataSet, CommonUtils }) => {
   await guardian.impersonate(dataSet.mainManager);
 

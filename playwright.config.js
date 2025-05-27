@@ -18,7 +18,7 @@ module.exports = defineConfig({
     timeout: 30_000
   },
   reporter:'html',
-  globalSetup: require.resolve('./utils/GlobalSetup.js'),
+  globalSetup: require.resolve('./utils/settings/GlobalSetup.js'),
   /* Run tests in files in parallel */
  //fullyParallel: true,
  ///* Fail the build on CI if you accidentally left test.only in the source code. */

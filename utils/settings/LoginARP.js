@@ -1,4 +1,4 @@
-const dataSet = JSON.parse(JSON.stringify(require('./loginData.json')));
+const dataSet = JSON.parse(JSON.stringify(require('../data/loginData.json')));
 const { chromium } = require('playwright')
 const fs = require('fs');
 const path = require('path');
@@ -22,7 +22,7 @@ async function loginARP() {
             // Get the response body
             const responseBody = await response.text();
             //Store the access token to access_token.json
-            fs.writeFileSync(path.join(__dirname, 'access_token.json'), JSON.stringify({ access_token: JSON.parse(responseBody).access_token }));
+            fs.writeFileSync(path.join(__dirname, '../data/access_token.json'), JSON.stringify({ access_token: JSON.parse(responseBody).access_token }));
         }
     });
 

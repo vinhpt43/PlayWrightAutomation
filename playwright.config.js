@@ -10,6 +10,7 @@ const { defineConfig, devices } = require('@playwright/test');
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
 module.exports = defineConfig({
   testDir: './tests',
   timeout: 30_000,
@@ -17,6 +18,7 @@ module.exports = defineConfig({
     timeout: 30_000
   },
   reporter:'html',
+  globalSetup: require.resolve('./utils/GlobalSetup.js'),
   /* Run tests in files in parallel */
  //fullyParallel: true,
  ///* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -31,8 +33,8 @@ module.exports = defineConfig({
   use: {
     browserName:'chromium',
     headless : false,
-    screenshot: 'on',
-    trace: 'on',
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
     environment: 'inte'
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',

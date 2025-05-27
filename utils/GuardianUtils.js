@@ -1,15 +1,22 @@
-const { CommonUtils } = require("./CommonUtils.js")
+const { request } = require('@playwright/test')
 const config = require("../playwright.config.js")
+const fs = require('fs');
+const path = require('path');
 
 class GuardianUtils {
 
-    constructor(apiContext, accessToken) {
-        this.apiContext = apiContext;
+    constructor() {
+        const tokenData = JSON.parse(fs.readFileSync(path.join(__dirname, 'access_token.json')));
         this.baseURL = "https://guardian.o2f-it.com/api/v1";
         this.headers = {
-            "authorization": "Bearer " + accessToken,
+            "authorization": "Bearer " + tokenData.access_token,
             "X-Guardian-Tenant": config.use.environment
         };
+    }
+
+    async init() {
+        this.apiContext = await request.newContext();
+        return this;
     }
 
     async impersonate(employeeName) {

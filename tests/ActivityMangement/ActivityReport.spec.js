@@ -1,10 +1,3 @@
-const { test, expect, request } = require('@playwright/test');
-const fs = require('fs');
-const { GuardianUtils } = require('../utils/GuardianUtils');
-const { CommonUtils } = require('../utils/CommonUtils');
-const dataset = JSON.parse(JSON.stringify(require('../utils/testData.json')));
-const {customTest} = require('../utils/testFixture');
-const fakeAR = { project: [], summaries: [], absences: [] };
 const fakeAR2 = {
 	"projects": [
 		{
@@ -2266,61 +2259,38 @@ const fakeAR2 = {
 	]
 };
 
-let page;
-let accessToken;
-let apiContext;
-let globalcontext;
-let guardian;
-let commonUtils;
+// myTest.spec.js
+const { test, expect } = require('../../utils/customFixture'); // Adjust path as needed
+test('Go to AM 1', async ({ page, guardian, dataSet, CommonUtils }) => {
+  await guardian.impersonate(dataSet.mainManager);
 
-// test.describe.configure({mode:'parallel'});
+  await page.route(
+    "https://inte.mantu.com/activitymanagement-api/api/v1.0/activityreport?employeeId=*",
+    async route => {
+      const response = await page.request.fetch(route.request());
+      let body = JSON.stringify(fakeAR2);
+      route.fulfill({ response, body });
+    }
+  );
 
-test.beforeAll('Login ARP', async ({ browser }) => {
-	const context = await browser.newContext();
-	commonUtils = new CommonUtils(context)
-	accessToken = await commonUtils.LoginARP(dataset.username, dataset.password);
-	apiContext = await request.newContext();
-	guardian = new GuardianUtils(apiContext, accessToken);
-	globalcontext = await browser.newContext({ storageState: 'session.json' });
-	page = await globalcontext.newPage();
+  await page.goto(CommonUtils.goToSinglePageApp('am'));
+  await expect(page).toHaveTitle(/.*Activity Management/);
+  await page.pause();
 });
 
-// customTest('Login ARP', async ({ browser,testData }) => {
-// 	const context = await browser.newContext();
-// 	commonUtils = new CommonUtils(context)
-// 	accessToken = await commonUtils.LoginARP(testData.username, testData.password);
-// 	apiContext = await request.newContext();
-// 	guardian = new GuardianUtils(apiContext, accessToken);
-// 	globalcontext = await browser.newContext({ storageState: 'session.json' });
-// 	page = await globalcontext.newPage();
-// });
+test('Go to AM 2', async ({ page, guardian, dataSet, CommonUtils }) => {
+  await guardian.impersonate(dataSet.consultant);
 
-test.beforeEach(async ({ browser }) => {
+  await page.route(
+    "https://inte.mantu.com/activitymanagement-api/api/v1.0/activityreport?employeeId=*",
+    async route => {
+      const response = await page.request.fetch(route.request());
+      let body = JSON.stringify(fakeAR2);
+      route.fulfill({ response, body });
+    }
+  );
 
-});
-
-test.afterEach(async () => {
-	await guardian.revert();
-	await page.close();
-});
-
-test('Go to AM 1', async () => {
-	// await guardian.impersonate("sana brunet");
-
-	await page.route("https://inte.mantu.com/activitymanagement-api/api/v1.0/activityreport?employeeId=*",
-		async route => {
-			const response = await page.request.fetch(route.request());
-			let body = JSON.stringify(fakeAR2);
-			//   console.log(body);
-			route.fulfill(
-				{
-					response,
-					body
-				});
-			//intercepting response -APi response-> { playwright fakeresponse}->browser->render data on front end
-		});
-
-	await page.goto(CommonUtils.goToSinglePageApp('am'));
-	await expect(page).toHaveTitle(/.*Activity Management/);
-	await page.pause();
+  await page.goto(CommonUtils.goToSinglePageApp('am'));
+  await expect(page).toHaveTitle(/.*Activity Management/);
+  await page.pause();
 });

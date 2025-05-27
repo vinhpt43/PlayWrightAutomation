@@ -1,4 +1,5 @@
 const GlobalVariables = require('../utils/GlobalVariables');
+const dataSet = JSON.parse(JSON.stringify(require('../utils/testData.json')));
 
 class LoginPage {
     constructor(page) {
@@ -9,7 +10,7 @@ class LoginPage {
         this.rememberLogin_checkbox = page.getByText('Remember this device for 30 days');
     }
 
-    async loginARP(username, password) {
+    async loginARP() {
         const targetUrl = 'https://auth.mantu.com/oauth/token';
         this.page.on('response', async response => {
             // Check if the response URL matches the target URL
@@ -23,9 +24,9 @@ class LoginPage {
 
         //Fill in username and password and proceed to log in
         await this.page.goto("https://am.intearp.mantu.com");
-        await this.username_txtbox.fill(username);
+        await this.username_txtbox.fill(dataSet.username);
         await this.continue_btn.click();
-        await this.password_txtbox.fill(password);
+        await this.password_txtbox.fill(dataSet.password);
         await this.continue_btn.click();
         await this.rememberLogin_checkbox.click();
         await this.continue_btn.click();

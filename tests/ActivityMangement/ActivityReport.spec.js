@@ -2261,7 +2261,8 @@ const fakeAR2 = {
 
 // myTest.spec.js
 const { test, expect } = require('../../utils/settings/customFixture'); // Adjust path as needed
-test('Go to AM 1', async ({ page, guardian, dataSet, CommonUtils }) => {
+const {ActivityManagementAPI} = require('../../utils/API/ActivityManagementAPI');
+test('Go to AM 1', async ({ page, guardian, dataSet, StringHelper }) => {
   await guardian.impersonate(dataSet.mainManager);
 
   await page.route(
@@ -2273,24 +2274,13 @@ test('Go to AM 1', async ({ page, guardian, dataSet, CommonUtils }) => {
     }
   );
 
-  await page.goto(CommonUtils.goToSinglePageApp('am'));
+  await page.goto(StringHelper.goToSinglePageApp('am'));
   await expect(page).toHaveTitle(/.*Activity Management/);
   await page.pause();
 });
 
-test('Go to AM 2', async ({ page, guardian, dataSet, CommonUtils }) => {
+test.only('Go to AM 2', async ({ page, guardian, dataSet }) => {
   await guardian.impersonate(dataSet.consultant);
-
-  await page.route(
-    "https://inte.mantu.com/activitymanagement-api/api/v1.0/activityreport?employeeId=*",
-    async route => {
-      const response = await page.request.fetch(route.request());
-      let body = JSON.stringify(fakeAR2);
-      route.fulfill({ response, body });
-    }
-  );
-
-  await page.goto(CommonUtils.goToSinglePageApp('am'));
-  await expect(page).toHaveTitle(/.*Activity Management/);
-  await page.pause();
+  const activityManagementAPI = await (new ActivityManagementAPI()).init();
+  await activityManagementAPI.getActivityReport(23845,'2025-05-01','2025-05-07');
 });

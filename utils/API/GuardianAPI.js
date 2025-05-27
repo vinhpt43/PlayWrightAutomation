@@ -3,7 +3,7 @@ const config = require("../../playwright.config.js")
 const fs = require('fs');
 const path = require('path');
 
-class GuardianUtils {
+class GuardianAPI {
 
     constructor() {
         const tokenData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/access_token.json')));
@@ -39,4 +39,4 @@ class GuardianUtils {
     }
 }
 
-module.exports = { GuardianUtils }
+module.exports = { GuardianAPI }

@@ -1,12 +1,12 @@
 // fixtures.js
 const { test: base, expect } = require('@playwright/test');
-const { GuardianUtils } = require('../API/GuardianUtils');
-const { CommonUtils } = require('../UI/CommonUtils');
+const { GuardianAPI } = require('../API/GuardianAPI');
+const { StringHelper } = require('../Helpers/StringHelper');
 const dataSet = require('../data/testData.json');
 
 exports.test = base.extend({
   guardian: async ({ }, use) => {
-    const guardian = await (new GuardianUtils()).init();
+    const guardian = await (new GuardianAPI()).init();
     await use(guardian);
     await guardian.revert();
   },
@@ -20,8 +20,8 @@ exports.test = base.extend({
   dataSet: async ({ }, use) => {
     await use(dataSet);
   },
-  CommonUtils: async ({ }, use) => {
-    await use(CommonUtils);
+  StringHelper: async ({ }, use) => {
+    await use(StringHelper);
   }
 });
 exports.expect = expect;

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const config = require("../../playwright.config.js")
+const config = require("../playwright.config.js")
 // const singlePageDomain = `https://${appName}.${environment}arp.mantu.com`
 class CommonUtils {
 

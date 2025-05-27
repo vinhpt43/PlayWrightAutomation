@@ -1,5 +1,5 @@
-const { CommonUtils } = require("./CommonUtils")
-const config = require("../../playwright.config.js")
+const { CommonUtils } = require("./CommonUtils.js")
+const config = require("../playwright.config.js")
 
 class GuardianUtils {
 

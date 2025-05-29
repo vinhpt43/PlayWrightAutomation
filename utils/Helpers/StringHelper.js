@@ -1,4 +1,3 @@
-const fs = require('fs');
 const config = require("../../playwright.config")
 
 class StringHelper {

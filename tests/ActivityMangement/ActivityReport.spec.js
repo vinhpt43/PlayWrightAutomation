@@ -2261,26 +2261,41 @@ const fakeAR2 = {
 
 // myTest.spec.js
 const { test, expect } = require('../../utils/settings/customFixture'); // Adjust path as needed
-const {ActivityManagementAPI} = require('../../utils/API/ActivityManagementAPI');
+const { ActivityManagementAPI } = require('../../utils/API/ActivityManagementAPI');
+const { ActivityReportPage } = require('../../pages/ActivityManagement/ActivityReport');
 test('Go to AM 1', async ({ page, guardian, dataSet, StringHelper }) => {
-  await guardian.impersonate(dataSet.mainManager);
+	await guardian.impersonate(dataSet.mainManager);
 
-  await page.route(
-    "https://inte.mantu.com/activitymanagement-api/api/v1.0/activityreport?employeeId=*",
-    async route => {
-      const response = await page.request.fetch(route.request());
-      let body = JSON.stringify(fakeAR2);
-      route.fulfill({ response, body });
-    }
-  );
+	await page.route(
+		"https://inte.mantu.com/activitymanagement-api/api/v1.0/activityreport?employeeId=*",
+		async route => {
+			const response = await page.request.fetch(route.request());
+			let body = JSON.stringify(fakeAR2);
+			route.fulfill({ response, body });
+		}
+	);
 
-  await page.goto(StringHelper.goToSinglePageApp('am'));
-  await expect(page).toHaveTitle(/.*Activity Management/);
-  await page.pause();
+	await page.goto(StringHelper.goToSinglePageApp('am'));
+	await expect(page).toHaveTitle(/.*Activity Management/);
+	await page.pause();
 });
 
-test.only('Go to AM 2', async ({ page, guardian, dataSet }) => {
-  await guardian.impersonate(dataSet.consultant);
-  const activityManagementAPI = await (new ActivityManagementAPI()).init();
-  await activityManagementAPI.getActivityReport(23845,'2025-05-01','2025-05-07');
+test('Go to AM 2', async ({ page, guardian, dataSet }) => {
+	await guardian.impersonate(dataSet.consultant);
+	const activityManagementAPI = await (new ActivityManagementAPI()).init();
+	await activityManagementAPI.getActivityReport(23845, '2025-05-01', '2025-05-07');
+});
+
+test('Go to AM 3', async ({ page, guardian, dataSet }) => {
+	await guardian.impersonate(dataSet.consultant);
+	const activityReportPage = new ActivityReportPage(page);
+	await activityReportPage.goToActivityReport();
+	await activityReportPage.verifyWeeklyViewExist();
+});
+
+test.only('Verify the calendar on Monthly view is correct', async ({ page, guardian, dataSet }) => {
+	await guardian.impersonate(dataSet.consultant);
+	const activityReportPage = new ActivityReportPage(page);
+	await activityReportPage.goToActivityReport();
+	await activityReportPage.verifyMonthlyCalendarIsCorrect();
 });

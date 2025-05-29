@@ -28,7 +28,7 @@ test('Login ARP', async({browser})=>
     const rememberLogin_checkbox = page.getByText('Remember this device for 30 days');
     await username_txtbox.fill("vphan1@mantu.com");
     await continue_btn.click();
-    await password_txtbox.fill("mononoke_43");
+    await password_txtbox.fill("***");
     await continue_btn.click();
     await rememberLogin_checkbox.click();
     await continue_btn.click();

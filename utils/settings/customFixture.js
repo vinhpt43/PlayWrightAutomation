@@ -1,8 +1,8 @@
-// fixtures.js
-const { test: base, expect } = require('@playwright/test');
+const { test: base } = require('@playwright/test');
 const { GuardianAPI } = require('../API/GuardianAPI');
 const { StringHelper } = require('../Helpers/StringHelper');
 const dataSet = require('../data/testData.json');
+const { ActivityReportPage, ValidationPage } = require('../../pages/ActivityManagement');
 
 exports.test = base.extend({
   guardian: async ({ }, use) => {
@@ -10,18 +10,25 @@ exports.test = base.extend({
     await use(guardian);
     await guardian.revert();
   },
-  page: async ({ browser }, use) => {
+  dataSet: async ({ }, use) => {
+    await use(dataSet);
+  },
+  StringHelper: async ({ }, use) => {
+    await use(StringHelper);
+  },
+  pageWithContext: async ({ browser }, use) => {
     const context = await browser.newContext({ storageState: 'session.json' });
     const page = await context.newPage();
     await use(page);
     await page.close();
     await context.close();
   },
-  dataSet: async ({ }, use) => {
-    await use(dataSet);
+  activityReportPage: async ({ pageWithContext }, use) => {
+    const activityReportPage = new ActivityReportPage(pageWithContext);
+    await use(activityReportPage);
   },
-  StringHelper: async ({ }, use) => {
-    await use(StringHelper);
+  validationPage: async ({ pageWithContext }, use) => {
+    const validationPage = new ValidationPage(pageWithContext);
+    await use(validationPage);
   }
 });
-exports.expect = expect;

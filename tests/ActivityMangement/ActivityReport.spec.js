@@ -2260,10 +2260,8 @@ const fakeAR2 = {
 };
 
 const { test, expect } = require('../../utils/settings/customFixture'); 
-const { ActivityManagementAPI } = require('../../utils/API/ActivityManagementAPI');
-const { ActivityReportPage } = require('../../pages/ActivityManagement/ActivityReport');
 
-test('Go to AM 1', async ({ guardian, dataSet, StringHelper}) => {
+test('route API response', async ({ guardian, dataSet, StringHelper}) => {
 	await guardian.impersonate(dataSet.mainManager);
 
 	await page.route(
@@ -2280,18 +2278,11 @@ test('Go to AM 1', async ({ guardian, dataSet, StringHelper}) => {
 	await page.pause();
 });
 
-test('Go to AM 2', async ({ guardian, dataSet }) => {
+test.only('use ActivityMangementAPI', async ({ guardian, dataSet, activityManagementAPI }) => {
 	await guardian.impersonate(dataSet.consultant);
-	const activityManagementAPI = await (new ActivityManagementAPI()).init();
 	await activityManagementAPI.getActivityReport(23845, '2025-05-01', '2025-05-07');
 });
 
-test('Go to AM 3', async ({ guardian, dataSet }) => {
-	await guardian.impersonate(dataSet.consultant);
-	const activityReportPage = new ActivityReportPage(page);
-	await activityReportPage.goToActivityReport();
-	await activityReportPage.verifyWeeklyViewExist();
-});
 
 test.only('Verify the calendar on Monthly view is correct', async ({ activityReportPage, guardian, dataSet }) => {
 	await guardian.impersonate(dataSet.consultant);

@@ -3,6 +3,7 @@ const { GuardianAPI } = require('../API/GuardianAPI');
 const { StringHelper } = require('../Helpers/StringHelper');
 const dataSet = require('../data/testData.json');
 const { ActivityReportPage, ValidationPage } = require('../../pages/ActivityManagement');
+const { ActivityManagementAPI } = require('../API/ActivityManagementAPI');
 
 exports.test = base.extend({
   guardian: async ({ }, use) => {
@@ -30,5 +31,9 @@ exports.test = base.extend({
   validationPage: async ({ pageWithContext }, use) => {
     const validationPage = new ValidationPage(pageWithContext);
     await use(validationPage);
+  },
+  activityManagementAPI: async ({ }, use) => {
+    const activityManagementAPI = await (new ActivityManagementAPI()).init();
+    await use(activityManagementAPI);
   }
 });

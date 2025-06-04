@@ -1,0 +1,33 @@
+const { setWorldConstructor } = require('@cucumber/cucumber');
+const { GuardianAPI } = require('../utils/API/GuardianAPI');
+const personaData = require('../utils/data/setupData/personaData.json');
+const { ActivityReportPage, ValidationPage } = require('../pages/ActivityManagement');
+const { ActivityManagementAPI } = require('../utils/API/ActivityManagementAPI');
+const { StringHelper } = require('../utils/Helpers/StringHelper');
+const { chromium } = require('playwright');
+
+class CustomWorld {
+    async init() {
+        this.guardian = await (new GuardianAPI()).init();
+        this.personaData = personaData;
+        this.stringHelper = StringHelper;
+
+        this.browser = await chromium.launch();
+        this.context = await this.browser.newContext({ storageState: 'session.json' });
+        this.page = await this.context.newPage();
+        
+        this.activityReportPage = new ActivityReportPage(this.page);
+        this.validationPage = new ValidationPage(this.page);
+        this.activityManagementAPI = await (new ActivityManagementAPI()).init();
+        console.log('CustomWorld init done');
+    }
+
+    async cleanup() {
+        await this.page.close();
+        await this.context.close();
+        await this.browser.close();
+        await this.guardian.revert();
+    }
+}
+
+setWorldConstructor(CustomWorld);

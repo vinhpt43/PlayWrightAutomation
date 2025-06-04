@@ -6,7 +6,7 @@ const { StringHelper } = require('../Helpers/StringHelper');
 class ActivityManagementAPI {
 
     constructor() {
-        const tokenData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/access_token.json')));
+        const tokenData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/setupData/access_token.json')));
         this.baseURL = StringHelper.baseURL() + "/activitymanagement-api/api/v1.0";
         this.headers = {
             "authorization": "Bearer " + tokenData.access_token,

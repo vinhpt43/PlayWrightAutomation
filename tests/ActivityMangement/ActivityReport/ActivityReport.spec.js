@@ -1,5 +1,5 @@
-const { test, expect } = require('../../utils/settings/customFixture');
-const testData = require('../../utils/data/testData');
+const { test } = require('../../../utils/settings/customFixture');
+const testData = require('../../../utils/data/testData');
 
 test.only('route API response', async ({ guardian, personaData, activityReportPage }) => {
 	await guardian.impersonate(personaData.mainManager);

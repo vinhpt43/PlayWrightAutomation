@@ -1,8 +1,8 @@
-const { Before, After, BeforeAll } = require('@cucumber/cucumber');
+const { Before, After, BeforeAll, setDefaultTimeout } = require('@cucumber/cucumber');
 const globalSetup = require('../utils/settings/GlobalSetup.js');
-const { setDefaultTimeout } = require('@cucumber/cucumber');
+const playwrightConfig = require('../playwright.config.js');
 
-setDefaultTimeout(60000); // 60 seconds
+setDefaultTimeout(playwrightConfig.timeout);
 
 BeforeAll(async function () {
   await globalSetup();
@@ -15,4 +15,3 @@ Before(async function() {
 After(async function() {
     await this.cleanup();
 });
-

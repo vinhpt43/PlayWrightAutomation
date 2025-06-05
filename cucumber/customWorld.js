@@ -15,11 +15,10 @@ class CustomWorld {
         this.browser = await chromium.launch();
         this.context = await this.browser.newContext({ storageState: 'session.json' });
         this.page = await this.context.newPage();
-        
+
         this.activityReportPage = new ActivityReportPage(this.page);
         this.validationPage = new ValidationPage(this.page);
         this.activityManagementAPI = await (new ActivityManagementAPI()).init();
-        console.log('CustomWorld init done');
     }
 
     async cleanup() {

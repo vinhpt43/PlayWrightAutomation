@@ -13,9 +13,9 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests',
-  timeout: 30_000,
+  timeout: 30000,
   expect:{
-    timeout: 30_000
+    timeout: 30000
   },
   reporter:'html',
   //custommized set up file to login to ARP (and maybe other set up in the future)

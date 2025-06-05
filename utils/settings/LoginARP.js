@@ -41,6 +41,8 @@ async function loginARP() {
     //Save session context for all later tests
     await page.context().storageState({ path: 'session.json' });
     await page.close();
+    await context.close();
+    await browser.close();
 }
 module.exports = { loginARP };
 // module.exports =  loginARP ;

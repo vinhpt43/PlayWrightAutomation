@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function loginARP() {
-    //Init browser
+    //Init browser in head mode to input password manually later
     const browser = await chromium.launch({headless:false});
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -40,6 +40,8 @@ async function loginARP() {
 
     //Save session context for all later tests
     await page.context().storageState({ path: 'session.json' });
+
+    //Close
     await page.close();
     await context.close();
     await browser.close();

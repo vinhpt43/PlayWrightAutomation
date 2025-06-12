@@ -12,7 +12,7 @@ class CustomWorld {
         this.personaData = personaData;
         this.stringHelper = StringHelper;
 
-        this.browser = await chromium.launch();
+        this.browser = await chromium.launch({headless:false});
         this.context = await this.browser.newContext({ storageState: 'session.json' });
         this.page = await this.context.newPage();
 

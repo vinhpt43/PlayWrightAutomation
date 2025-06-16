@@ -1,6 +1,6 @@
 const { setWorldConstructor } = require('@cucumber/cucumber');
 const { GuardianAPI } = require('../utils/API/GuardianAPI');
-const personaData = require('../utils/data/setupData/personaData.json');
+const { USER_ROLES } = require('../utils/data/setupData/constants');
 const { ActivityReportPage, ValidationPage } = require('../pages/ActivityManagement');
 const { ActivityManagementAPI } = require('../utils/API/ActivityManagementAPI');
 const { StringHelper } = require('../utils/Helpers/StringHelper');
@@ -9,7 +9,7 @@ const { chromium } = require('playwright');
 class CustomWorld {
     async init() {
         this.guardian = await (new GuardianAPI()).init();
-        this.personaData = personaData;
+        this.userRoles = USER_ROLES;
         this.stringHelper = StringHelper;
 
         this.browser = await chromium.launch({headless:false});

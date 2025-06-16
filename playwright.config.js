@@ -18,9 +18,13 @@ module.exports = defineConfig({
     timeout: 30000
   },
   reporter:'html',
+
   //custommized set up file to login to ARP (and maybe other set up in the future)
   globalSetup: require.resolve('./utils/settings/GlobalSetup.js'),
+
+  //customized set up file to login to ARP
   // globalSetup: require.resolve('./utils/settings/LoginARP'),
+
   /* Run tests in files in parallel */
  //fullyParallel: true,
  ///* Fail the build on CI if you accidentally left test.only in the source code. */

@@ -1,8 +1,8 @@
 const { test } = require('../../../utils/settings/customFixture');
 const testData = require('../../../utils/data/testData');
 
-// test.only('route API response', async ({ guardian, personaData, activityReportPage }) => {
-// 	await guardian.impersonate(personaData.mainManager);
+// test.only('route API response', async ({ guardian, activityReportPage, userRoles }) => {
+// 	await guardian.impersonate(userRoles.CONSULTANT);
 // 	const fakeAR2 = testData.activityReportData1;
 // 	await activityReportPage.page.route(
 // 		"https://inte.mantu.com/activitymanagement-api/api/v1.0/activityreport?employeeId=*",
@@ -12,27 +12,26 @@ const testData = require('../../../utils/data/testData');
 // 			route.fulfill({ response, body });
 // 		}
 // 	);
-
 // 	await activityReportPage.goToActivityReport();
 // 	await activityReportPage.page.pause();
 // });
 
-// test('use ActivityMangementAPI', async ({ guardian, personaData, activityManagementAPI }) => {
-// 	await guardian.impersonate(personaData.consultant);
+// test('use ActivityMangementAPI', async ({ guardian, activityManagementAPI, userRoles }) => {
+// 	await guardian.impersonate(userRoles.CONSULTANT);
 // 	await activityManagementAPI.getActivityReport(23845, '2025-05-01', '2025-05-07');
 // });
 
 
-// test('Verify the calendar on Monthly view is correct', async ({ activityReportPage, guardian, personaData }) => {
-// 	await guardian.impersonate(personaData.consultant);
+// test('Verify the calendar on Monthly view is correct', async ({ activityReportPage, guardian, userRoles }) => {
+// 	await guardian.impersonate(userRoles.CONSULTANT);
 // 	await activityReportPage.goToActivityReport();
 // 	await activityReportPage.verifyMonthlyCalendarIsCorrect();
 // });
 
 test.describe('Activity Report', async () => {
-	test('Verify the calendar on Monthly view is correct', async ({ activityReportPage, guardian, personaData }) => {
+	test('Verify the calendar on Monthly view is correct', async ({ activityReportPage, guardian, userRoles }) => {
 		await test.step('Given user is consultant', async () => {
-			await guardian.impersonate(personaData.consultant);
+			await guardian.impersonate(userRoles.CONSULTANT);
 		});
 		await test.step('When user is on Activity Report page', async () => {
 			await activityReportPage.goToActivityReport();

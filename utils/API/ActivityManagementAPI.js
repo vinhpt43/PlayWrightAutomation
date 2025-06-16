@@ -2,12 +2,13 @@ const { request } = require('@playwright/test')
 const fs = require('fs');
 const path = require('path');
 const { StringHelper } = require('../Helpers/StringHelper');
+const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../data/setupData/constants')
 
 class ActivityManagementAPI {
 
     constructor() {
         const tokenData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/setupData/access_token.json')));
-        this.baseURL = StringHelper.baseURL() + "/activitymanagement-api/api/v1.0";
+        this.baseURL = StringHelper.baseURL() + CONFIG.ACTIVITYMANAGEMENTAPISERVER;
         this.headers = {
             "authorization": "Bearer " + tokenData.access_token,
             "content-type": "application/json"
@@ -26,7 +27,7 @@ class ActivityManagementAPI {
             endDate: endDate
         });
 
-        const urlWithParams = `${this.baseURL + "/ActivityReport"}?${queryParams.toString()}`;
+        const urlWithParams = `${this.baseURL + ACTIVITYMANAGEMENTWRAPPER.ACTIVITYREPORT}?${queryParams.toString()}`;
 
         const response = await (await this.apiContext.get(urlWithParams, { headers: this.headers })).text();
 

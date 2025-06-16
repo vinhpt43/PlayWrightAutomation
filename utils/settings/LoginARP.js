@@ -1,4 +1,4 @@
-const dataSet = JSON.parse(JSON.stringify(require('../data/setupData/loginData.json')));
+const { LOGIN } = require('../data/setupData/constants');
 const { chromium } = require('playwright')
 const fs = require('fs');
 const path = require('path');
@@ -26,12 +26,13 @@ async function loginARP() {
         }
     });
 
-    //Fill in username and password and proceed to log in
+    //Go to any ARP app to open login portal
     await page.goto("https://am.intearp.mantu.com");
-    await username_txtbox.fill(dataSet.username);
+    //Fill in username and password and proceed to log in
+    await username_txtbox.fill(LOGIN.USERNAME);
     await continue_btn.click();
-    await password_txtbox.fill(dataSet.password);
-    await continue_btn.click();
+    // await password_txtbox.fill('');
+    // await continue_btn.click();
     await rememberLogin_checkbox.click();
     await continue_btn.click();
 

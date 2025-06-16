@@ -2,6 +2,7 @@ const { Page } = require('playwright');
 const { StringHelper } = require('../../utils/Helpers/StringHelper');
 const { expect } = require('@playwright/test');
 const { DateHelper } = require('../../utils/Helpers/DateHelper');
+const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../../utils/data/setupData/constants');
 
 class ActivityReportPage {
     constructor(page) {
@@ -24,7 +25,12 @@ class ActivityReportPage {
     }
 
     async goToActivityReport() {
+        const urlPart = CONFIG.ACTIVITYMANAGEMENTAPISERVER + ACTIVITYMANAGEMENTWRAPPER.ACTIVITYREPORT+'?';
+        const responsePromise = this.page.waitForEvent('response', response =>
+            response.url().includes(urlPart) && response.status() === 200
+        );
         await this.page.goto(StringHelper.goToSinglePageApp('am'));
+        await responsePromise;
     }
 
     async verifyWeeklyViewExist() {
@@ -62,7 +68,7 @@ class ActivityReportPage {
         const firstDayOfCurrentMonth = DateHelper.getDayOfADate(DateHelper.getFirstDayOfCurrentMonth());
         const index = this.headers.indexOf(firstDayOfCurrentMonth);
         const firstWeek = this.weekRowsOnCalendar.first();
-        const firstDay = firstWeek.locator(this.dateOfAllDaysOnCalendar).nth(index-1);
+        const firstDay = firstWeek.locator(this.dateOfAllDaysOnCalendar).nth(index - 1);
         // const firstDay = firstWeek.locator(//tr/td//div[@class="q-px-xs"]).nth(index);
         await expect(firstDay).toHaveText('01');
     }

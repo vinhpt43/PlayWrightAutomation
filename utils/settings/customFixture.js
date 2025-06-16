@@ -1,7 +1,7 @@
 const { test: base } = require('@playwright/test');
 const { GuardianAPI } = require('../API/GuardianAPI');
 const { StringHelper } = require('../Helpers/StringHelper');
-const personaData = require('../data/setupData/personaData.json');
+const { USER_ROLES } = require('../data/setupData/constants');
 const { ActivityReportPage, ValidationPage } = require('../../pages/ActivityManagement');
 const { ActivityManagementAPI } = require('../API/ActivityManagementAPI');
 
@@ -11,8 +11,8 @@ exports.test = base.extend({
     await use(guardian);
     await guardian.revert();
   },
-  personaData: async ({ }, use) => {
-    await use(personaData);
+  userRoles: async ({ }, use) => {
+    await use(USER_ROLES);
   },
   StringHelper: async ({ }, use) => {
     await use(StringHelper);

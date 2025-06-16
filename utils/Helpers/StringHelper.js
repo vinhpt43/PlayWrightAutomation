@@ -1,14 +1,15 @@
 const config = require("../../playwright.config")
+const { CONFIG } = require('../data/setupData/constants');
 
 class StringHelper {
 
     static goToSinglePageApp(appName) {
-        return `https://${appName}.${config.use.environment}arp.mantu.com`;
+        return `https://${appName}.${CONFIG.ENVIRONMENT}arp.mantu.com`;
     }
 
     static baseURL()
     {
-        return `https://${config.use.environment}.mantu.com`;
+        return `https://${CONFIG.ENVIRONMENT}.mantu.com`;
     }
 }
 

@@ -15,12 +15,9 @@ class ActivityReportPage {
         this.activityReport_button = this.page.getByRole('button', { name: 'Activity report' });
         this.calendarHeader_thead = this.page.locator('xpath=//div[@class="flex column"]//thead/tr');
         this.dateOfAllDaysOnCalendar = '//div[@class="q-px-xs"]';
-        // this.dayCellsOfCurrentMonth_td = this.page.locator('xpath=//div[@class="flex column"]/div[attribute::*[contains(name(), "data")]]//tr[(./*)]/ancestor::td');
         this.dayCellsOfCurrentMonth_td = this.page.locator('xpath=//div[@class="flex column"]//tbody//td[./div[1][(./*)]][./div/div[2][./div[(./*)]]]');
         this.dateOfDayCellsOfCurrentMonth = this.dayCellsOfCurrentMonth_td.locator(this.dateOfAllDaysOnCalendar);
-        // this.weekRowsOnCalendar = this.page.locator('xpath=//div[@class="flex column"]/div[attribute::*[contains(name(), "data")]]');
         this.weekRowsOnCalendar = this.page.locator('xpath=//div[@class="flex column"]//tbody/tr');
-        // this.headers = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Total"];
         this.headers = ["Project", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Total"];
     }
 
@@ -69,7 +66,6 @@ class ActivityReportPage {
         const index = this.headers.indexOf(firstDayOfCurrentMonth);
         const firstWeek = this.weekRowsOnCalendar.first();
         const firstDay = firstWeek.locator(this.dateOfAllDaysOnCalendar).nth(index - 1);
-        // const firstDay = firstWeek.locator(//tr/td//div[@class="q-px-xs"]).nth(index);
         await expect(firstDay).toHaveText('01');
     }
 }

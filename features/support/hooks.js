@@ -1,6 +1,6 @@
 const { Before, After, BeforeAll, setDefaultTimeout } = require('@cucumber/cucumber');
-const globalSetup = require('../utils/settings/GlobalSetup.js');
-const playwrightConfig = require('../playwright.config.js');
+const globalSetup = require('../../utils/settings/GlobalSetup.js');
+const playwrightConfig = require('../../playwright.config.js');
 
 setDefaultTimeout(playwrightConfig.timeout);
 

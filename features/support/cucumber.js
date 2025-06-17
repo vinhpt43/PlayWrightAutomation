@@ -1,7 +1,7 @@
 module.exports = {
   default: [
-    '--require', 'cucumber/hooks.js',
-    '--require', 'cucumber/customWorld.js',
+    '--require', 'hooks.js',
+    '--require', 'customWorld.js',
     '--require', 'features/**/*.js',
     '--format', 'summary'
   ].join(' ')

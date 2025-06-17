@@ -1,9 +1,9 @@
 const { setWorldConstructor } = require('@cucumber/cucumber');
-const { GuardianAPI } = require('../utils/API/GuardianAPI');
-const { USER_ROLES } = require('../utils/data/setupData/constants');
-const { ActivityReportPage, ValidationPage } = require('../pages/ActivityManagement');
-const { ActivityManagementAPI } = require('../utils/API/ActivityManagementAPI');
-const { StringHelper } = require('../utils/Helpers/StringHelper');
+const { GuardianAPI } = require('../../utils/API/GuardianAPI');
+const { USER_ROLES } = require('../../utils/data/setupData/constants');
+const { ActivityReportPage, ValidationPage } = require('../../pages/ActivityManagement');
+const { ActivityManagementAPI } = require('../../utils/API/ActivityManagementAPI');
+const { StringHelper } = require('../../utils/Helpers/StringHelper');
 const { chromium } = require('playwright');
 
 class CustomWorld {

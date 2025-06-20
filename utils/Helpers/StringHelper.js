@@ -1,4 +1,3 @@
-const config = require("../../playwright.config")
 const { CONFIG } = require('../data/setupData/constants');
 
 class StringHelper {

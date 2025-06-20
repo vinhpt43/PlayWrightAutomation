@@ -1,0 +1,1113 @@
+{
+  "projects": [
+    {
+      "project": {
+        "projectId": 33546,
+        "title": "Chef de projet Infrastructure Junior",
+        "unit": "ManDay"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-06-01T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-02T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-03T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-04T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-05T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-06T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-07T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-08T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-09T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119503,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684179",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946071",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-10T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119504,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.568418",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946349",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-11T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119505,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.568418",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946414",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-12T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119506,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684181",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946415",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-13T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119507,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684181",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946418",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-14T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-15T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-16T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119508,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684181",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946419",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-17T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119509,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684182",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.094642",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-18T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119510,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684182",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946421",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-19T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119511,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684183",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946423",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-20T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119512,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684183",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946424",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-21T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-22T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-23T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119513,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684183",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946425",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-24T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119514,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684184",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946427",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-25T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119515,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684184",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946428",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-26T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119516,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684184",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946436",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-27T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119517,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "PendingForValidation",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": null,
+              "validatedBy": null,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684185",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-11T09:51:07.0946437",
+              "updatedBy": 23845
+            }
+          ]
+        },
+        {
+          "dateOfTracking": "2025-06-28T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-29T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-30T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 119518,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "Valid",
+              "source": "ActivityManagement",
+              "unit": "ManDay",
+              "sourceExternalId": null,
+              "validatedDate": "2025-06-20T04:24:16.1516212",
+              "validatedBy": 29907,
+              "rejectedDate": null,
+              "rejectedBy": null,
+              "rejectedReason": null,
+              "createdDate": "2025-06-11T09:49:37.5684185",
+              "createdBy": 2083,
+              "updatedDate": "2025-06-20T04:24:16.1631046",
+              "updatedBy": 23845
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "project": {
+        "projectId": 0,
+        "title": "ICO",
+        "unit": "ManDay"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-06-01T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-02T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-03T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-04T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-05T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-06T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-07T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-08T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-09T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-10T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-11T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-12T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-13T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-14T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-15T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-16T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-17T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-18T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-19T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-20T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-21T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-22T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-23T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-24T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-25T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-26T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-27T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-28T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-29T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        },
+        {
+          "dateOfTracking": "2025-06-30T00:00:00",
+          "isPortalia": false,
+          "isDeclareOnBehalf": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        }
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-01T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-02T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-03T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-04T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-05T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-06T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-07T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-08T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-09T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-10T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-11T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-12T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-13T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-14T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-15T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-16T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-17T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-18T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-19T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-20T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-21T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-22T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-23T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-24T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-25T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-26T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-27T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-28T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-29T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    },
+    {
+      "employeeId": 23845,
+      "dateOfTracking": "2025-06-30T00:00:00",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    }
+  ],
+  "absences": [
+    {
+      "dateOfTracking": "2025-06-01T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-02T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": false,
+      "category": "PH"
+    },
+    {
+      "dateOfTracking": "2025-06-03T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": false,
+      "category": "PH"
+    },
+    {
+      "dateOfTracking": "2025-06-04T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": false,
+      "category": "PH"
+    },
+    {
+      "dateOfTracking": "2025-06-05T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": false,
+      "category": "PH"
+    },
+    {
+      "dateOfTracking": "2025-06-06T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": false,
+      "category": "PH"
+    },
+    {
+      "dateOfTracking": "2025-06-07T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-08T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-09T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-14T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-15T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-21T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-22T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-28T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    },
+    {
+      "dateOfTracking": "2025-06-29T00:00:00",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": true,
+      "category": null
+    }
+  ],
+  "isTimesheetHasFailures": true
+}

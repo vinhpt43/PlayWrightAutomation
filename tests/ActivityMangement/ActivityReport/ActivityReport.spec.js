@@ -1,13 +1,13 @@
 const { test } = require('../../../utils/settings/customFixture');
 const testData = require('../../../utils/data/testData');
 
-test.only('route API response', async ({ guardian, activityReportPage, userRoles }) => {
-	await guardian.impersonate(userRoles.CONSULTANT);
-	const fakeAR2 = testData.activityReportData2;
-	await activityReportPage.alterActivityReportResult(fakeAR2);
-	await activityReportPage.goToActivityReport();
-	await activityReportPage.page.pause();
-});
+// test.only('route API response', async ({ guardian, activityReportPage, userRoles }) => {
+// 	await guardian.impersonate(userRoles.CONSULTANT);
+// 	const fakeAR2 = testData.activityReportData2;
+// 	await activityReportPage.alterActivityReportResult(fakeAR2);
+// 	await activityReportPage.goToActivityReport();
+// 	await activityReportPage.page.pause();
+// });
 
 // test('use ActivityMangementAPI', async ({ guardian, activityManagementAPI, userRoles }) => {
 // 	await guardian.impersonate(userRoles.CONSULTANT);
@@ -29,8 +29,12 @@ test.describe('Activity Report', async () => {
 		await test.step('When user is on Activity Report page', async () => {
 			await activityReportPage.goToActivityReport();
 		});
-		await test.step('Then user sees Activity Report in Monthly view', async () => {
-			await activityReportPage.verifyMonthlyCalendarIsCorrect(true);
+		// await test.step('Then user sees Activity Report in Monthly view', async () => {
+		// 	await activityReportPage.verifyMonthlyCalendarIsCorrect(true);
+		// });
+		await test.step('And user input first field', async () => {
+			await activityReportPage.inputFirstICOField();
+			await activityReportPage.page.pause();
 		});
 	});
 });

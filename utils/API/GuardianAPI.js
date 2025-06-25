@@ -1,5 +1,5 @@
-const { request } = require('@playwright/test')
-const config = require("../../playwright.config.js")
+const { request } = require('@playwright/test');
+const { CONFIG } = require("../data/setupData/constants");
 const fs = require('fs');
 const path = require('path');
 
@@ -10,7 +10,7 @@ class GuardianAPI {
         this.baseURL = "https://guardian.o2f-it.com/api/v1";
         this.headers = {
             "authorization": "Bearer " + tokenData.access_token,
-            "X-Guardian-Tenant": config.use.environment
+            "X-Guardian-Tenant": CONFIG.ENVIRONMENT
         };
     }
 

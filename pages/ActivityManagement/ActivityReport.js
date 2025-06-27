@@ -4,6 +4,7 @@ const { StringHelper } = require('../../utils/Helpers/StringHelper');
 const { expect } = require('@playwright/test');
 const { DateHelper } = require('../../utils/Helpers/DateHelper');
 const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../../utils/data/setupData/constants');
+const  ignoreAppAnnouncement  = require('../../utils/data/setupData/ignoreAppAnnouncement.json');
 
 class ActivityReportPage extends Commonpage {
     constructor(page) {
@@ -62,14 +63,25 @@ class ActivityReportPage extends Commonpage {
         const responsePromise = this.page.waitForEvent('response', response =>
             response.url().includes(urlPart) && response.status() === 200
         );
+
+        //Ignore app announcement
+        await this.ignoreAppAnnouncement();
+
+        //Go to AM
         await this.page.goto(StringHelper.goToSinglePageApp('am'));
+
         //Wait for activity report loads successfully
         await responsePromise;
     }
 
     async alterActivityReportResult(alteredResponse) {
-        const urlPart = StringHelper.baseURL() + CONFIG.ACTIVITYMANAGEMENTAPISERVER + ACTIVITYMANAGEMENTWRAPPER.ACTIVITYREPORT + '?employeeId=*';
-        this.alterAPIresponse(urlPart, alteredResponse);
+        const url = StringHelper.baseURL() + CONFIG.ACTIVITYMANAGEMENTAPISERVER + ACTIVITYMANAGEMENTWRAPPER.ACTIVITYREPORT + '?employeeId=*';
+        this.alterAPIresponse(url, alteredResponse);
+    }
+
+    async ignoreAppAnnouncement() {
+        const url = StringHelper.baseURL() + '/messageHub-api/api/v1.0/public/app-announcements?*';
+        this.alterAPIresponse(url, ignoreAppAnnouncement);
     }
 
     async inputFirstICOField() {
@@ -140,7 +152,7 @@ class ActivityReportPage extends Commonpage {
                 }
             }
         }
-        catch (error) { console.error("Error: " + error.message); }
+        catch (error) { throw error }
     }
     // #endregion
 
@@ -186,6 +198,12 @@ class ActivityReportPage extends Commonpage {
         await expect(firstDay).toHaveText('01');
     }
 
+    async verifySubmitButtonsAreEnabled(isManager = false) {
+        if (!isManager) {
+            await expect(this.saveAsDraft_button).toBeEnabled();
+        }
+        await expect(this.sendForValidation_button).toBeEnabled();
+    }
     // #endregion
 
     // #region Integrated verification

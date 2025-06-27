@@ -33,8 +33,11 @@ test.describe('Activity Report', async () => {
 		// 	await activityReportPage.verifyMonthlyCalendarIsCorrect(true);
 		// });
 		await test.step('And user input first field', async () => {
-			await activityReportPage.inputFirstICOField();
-			await activityReportPage.page.pause();
+				await activityReportPage.inputFirstICOField();
+				// await activityReportPage.page.pause();
+		});
+		await test.step('Then submit buttons are enabled', async () => {
+			await activityReportPage.verifySubmitButtonsAreEnabled();
 		});
 	});
 });

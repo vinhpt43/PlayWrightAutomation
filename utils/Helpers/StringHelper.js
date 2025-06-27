@@ -8,7 +8,7 @@ class StringHelper {
 
     static baseURL()
     {
-        return `https://${CONFIG.ENVIRONMENT}.mantu.com`;
+        return `https://${CONFIG.ENVIRONMENT}arp.mantu.com`;
     }
 }
 

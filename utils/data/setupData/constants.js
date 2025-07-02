@@ -1,7 +1,7 @@
 export const USER_ROLES = {
-    CONSULTANT: 'lehouque francois',
-    MAINMANAGER: 'sana brunet',
-    PROJECTMANAGER: 'choplain gregoire'
+    CONSULTANT: { name: 'lehouque francois', id: 23845 },
+    MAINMANAGER: { name: 'sana brunet' },
+    PROJECTMANAGER: { name: 'choplain gregoire' }
 };
 
 export const CONFIG = {

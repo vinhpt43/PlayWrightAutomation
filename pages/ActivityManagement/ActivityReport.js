@@ -105,6 +105,7 @@ class ActivityReportPage extends Commonpage {
                     const ICOrow = this.weekRowsOnCalendar.nth(i).locator(this.ICOrows_xpath);
                     const icoCount = await ICOrow.count();
                     if (icoCount === 0) {
+                        // TO DO: CHECK IF PROJECT LIST IS EXPANDABLE AND FIND ICO AGAIN
                         continue;
                     }
                     else {

@@ -2,7 +2,8 @@ const { request } = require('@playwright/test')
 const fs = require('fs');
 const path = require('path');
 const { StringHelper } = require('../Helpers/StringHelper');
-const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../data/setupData/constants')
+const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../data/setupData/constants');
+const { error } = require('console');
 
 class ActivityManagementAPI {
 
@@ -37,7 +38,10 @@ class ActivityManagementAPI {
 
     async deleteDeclaration(timeTrackingId) {
         const url = this.baseURL + ACTIVITYMANAGEMENTWRAPPER.DECLARATION + '/' + timeTrackingId;
-        await this.apiContext.delete(url, { headers: this.headers });
+        const response = await this.apiContext.delete(url, { headers: this.headers });
+        if (response.status() !== 204) {
+            throw new Error('Delete unsuccessfully timeTrackingId ' + timeTrackingId + '. ' + await response.text());
+        }
     }
 }
 module.exports = { ActivityManagementAPI };

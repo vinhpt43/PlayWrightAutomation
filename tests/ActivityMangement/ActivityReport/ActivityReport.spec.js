@@ -13,7 +13,7 @@ const { DateHelper } = require('../../../utils/Helpers/DateHelper');
 test('use ActivityMangementAPI', async ({ guardian, activityManagementAPI, userRoles }) => {
 	await guardian.impersonate(userRoles.CONSULTANT.name);
 	console.log(await activityManagementAPI.getActivityReport(userRoles.CONSULTANT.id, DateHelper.getFirstDayOfCurrentMonth(), DateHelper.getLastDayOfCurrentMonth()));
-	console.log(await activityManagementAPI.deleteDeclaration(165526));
+	await activityManagementAPI.deleteDeclaration(165529);
 });
 
 

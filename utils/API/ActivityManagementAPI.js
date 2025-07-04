@@ -31,7 +31,8 @@ class ActivityManagementAPI {
 
         const response = await (await this.apiContext.get(urlWithParams, { headers: this.headers })).text();
 
-        console.log(response);
+        // console.log(response);
+        return response;
     }
 }
 module.exports = { ActivityManagementAPI };

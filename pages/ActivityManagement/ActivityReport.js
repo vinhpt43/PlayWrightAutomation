@@ -4,7 +4,8 @@ const { StringHelper } = require('../../utils/Helpers/StringHelper');
 const { expect } = require('@playwright/test');
 const { DateHelper } = require('../../utils/Helpers/DateHelper');
 const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../../utils/data/setupData/constants');
-const  ignoreAppAnnouncement  = require('../../utils/data/setupData/ignoreAppAnnouncement.json');
+const ignoreAppAnnouncement = require('../../utils/data/setupData/ignoreAppAnnouncement.json');
+const ignoreExpressYourself = require('../../utils/data/setupData/ignoreExpressYourself.json');
 
 class ActivityReportPage extends Commonpage {
     constructor(page) {
@@ -67,6 +68,9 @@ class ActivityReportPage extends Commonpage {
         //Ignore app announcement
         await this.ignoreAppAnnouncement();
 
+        //Ignore express yourself survey
+        await this.ignoreExpressYourself();
+
         //Go to AM
         await this.page.goto(StringHelper.goToSinglePageApp('am'));
 
@@ -82,6 +86,11 @@ class ActivityReportPage extends Commonpage {
     async ignoreAppAnnouncement() {
         const url = StringHelper.baseURL() + '/messageHub-api/api/v1.0/public/app-announcements?*';
         this.alterAPIresponse(url, ignoreAppAnnouncement);
+    }
+
+    async ignoreExpressYourself() {
+        const url = StringHelper.baseURL() + CONFIG.ACTIVITYMANAGEMENTAPISERVER + '/expressYourself/*';
+        this.alterAPIresponse(url, ignoreExpressYourself);
     }
 
     async inputFirstICOField() {

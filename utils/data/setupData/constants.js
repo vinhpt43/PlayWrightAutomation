@@ -5,12 +5,13 @@ export const USER_ROLES = {
 };
 
 export const CONFIG = {
-    ENVIRONMENT: 'qa',
+    ENVIRONMENT: 'qa', // 2 options: 'inte' or 'qa'
     ACTIVITYMANAGEMENTAPISERVER: '/activitymanagement-api/api/v1.0'
 };
 
 export const ACTIVITYMANAGEMENTWRAPPER = {
     ACTIVITYREPORT: '/activityreport',
+    DECLARATION: '/declaration'
 }
 
 export const LOGIN = {

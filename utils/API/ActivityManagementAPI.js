@@ -34,5 +34,10 @@ class ActivityManagementAPI {
         // console.log(response);
         return response;
     }
+
+    async deleteDeclaration(timeTrackingId) {
+        const url = this.baseURL + ACTIVITYMANAGEMENTWRAPPER.DECLARATION + '/' + timeTrackingId;
+        await this.apiContext.delete(url, { headers: this.headers });
+    }
 }
 module.exports = { ActivityManagementAPI };

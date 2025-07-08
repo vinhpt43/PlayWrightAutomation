@@ -1,0 +1,48 @@
+{
+  "projects": [
+    {
+      "project": {
+        "projectId": 1,
+        "title": "P1",
+        "unit": "ManHour"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-07-08",
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        }
+      ]
+    },
+    {
+      "project": {
+        "projectId": 2,
+        "title": "P2",
+        "unit": "ManHour"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-07-08",
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": []
+        }
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "dateOfTracking": "2025-07-08",
+      "totalEffortInManDay": 0,
+      "totalEffortInManHour": 0,
+      "remainingEffortInManDay": 1,
+      "remainingEffortInManHour": 8
+    }
+  ],
+  "absences": []
+}

@@ -12,8 +12,6 @@ class CustomWorld {
         this.userRoles = USER_ROLES;
         this.stringHelper = StringHelper;
 
-        this.browser = await chromium.launch({ headless: false });
-        this.context = await this.browser.newContext({ storageState: 'session.json' });
         this.page = await this.context.newPage();
 
         this.activityReportPage = new ActivityReportPage(this.page);
@@ -23,8 +21,6 @@ class CustomWorld {
 
     async cleanup() {
         await this.page.close();
-        await this.context.close();
-        await this.browser.close();
         await this.guardian.revert();
     }
 }

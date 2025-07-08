@@ -5,7 +5,7 @@ export const USER_ROLES = {
 };
 
 export const CONFIG = {
-    ENVIRONMENT: 'qa', // 2 options: 'inte' or 'qa'
+    ENVIRONMENT: 'inte', // 2 options: 'inte' or 'qa'
     ACTIVITYMANAGEMENTAPISERVER: '/activitymanagement-api/api/v1.0'
 };
 

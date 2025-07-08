@@ -6,6 +6,7 @@ const { DateHelper } = require('../../utils/Helpers/DateHelper');
 const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../../utils/data/setupData/constants');
 const ignoreAppAnnouncement = require('../../utils/data/setupData/ignoreAppAnnouncement.json');
 const ignoreExpressYourself = require('../../utils/data/setupData/ignoreExpressYourself.json');
+const { text } = require('stream/consumers');
 
 class ActivityReportPage extends Commonpage {
     constructor(page) {
@@ -13,14 +14,14 @@ class ActivityReportPage extends Commonpage {
         super(page);
         //#region Locators
 
-        //#region Button
+        //#region Buttons
         this.weekly_view = this.page.getByText('Weekly');
         this.month_view = this.page.getByText('Monthly');
         this.saveAsDraft_button = this.page.getByRole('button', { name: 'Save as draft' });
         this.sendForValidation_button = this.page.getByRole('button', { name: 'Send for validation' });
         this.declareOnBehalf_button = this.page.getByRole('button', { name: 'Declare on behalf' });
         this.activityReport_button = this.page.getByRole('button', { name: 'Activity report' });
-        //#endregion
+        //#endregion Buttons
 
         //#region Tables
         this.dataTableMonthlyView = this.page.locator('xpath=//div[@class="flex gap-4 column m-t-4"]/div[2]');
@@ -41,19 +42,23 @@ class ActivityReportPage extends Commonpage {
         this.projectsOfDayCellsOfCurrentMonth = this.projectsGroupOfDayCellsOfCurrentMonth.locator('xpath=' + this.projectsOfDayCellsOfCurrentMonth_xpath);
 
         this.dayCellsWithOFF = this.projectsGroupOfDayCellsOfCurrentMonth.locator('xpath=/div[@class="text-bold"]');
-        //#endregion
+        //#endregion Tables
 
-        //#region Input
+        //#region Inputs
         this.declarationFieldsMonthlyView = this.dataTableMonthlyView.getByRole('textbox');
         this.declarationFieldsWeeklyView = this.dataTableWeeklyView.getByRole('textbox');
-        //#endregion
+        //#endregion Inputs
 
-        //#endregion
+        //#region Tooltips
+        this.inputFieldTooltipMessage = this.page.locator('[id^="q-portal--tooltip--"]');
+        //#endregion Tooltips
+
+        //#endregion Locators
 
         //#region Constants
         this.headers = ["Project", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Total"];
         this.noData_text = "You are currently not assigned to a project. Please check with your manager";
-        //#endregion
+        //#endregion Constants
     }
 
     // #region Actions
@@ -164,15 +169,19 @@ class ActivityReportPage extends Commonpage {
         }
         catch (error) { throw error }
     }
-    // #endregion
+
+    async inputDeclarationByIndexOnMonthlyView(index, value){
+        await this.declarationFieldsMonthlyView.nth(index - 1).fill(value);
+    }
+    // #endregion Unit actions
 
     // #region Integrated actions
 
-    // #endregion
+    // #endregion Integrated actions
 
-    // #endregion
+    // #endregion Actions
 
-    // #region Verification
+    // #region Verifications
 
     // #region Unit verifications
 
@@ -214,9 +223,24 @@ class ActivityReportPage extends Commonpage {
         }
         await expect(this.sendForValidation_button).toBeEnabled();
     }
-    // #endregion
 
-    // #region Integrated verification
+    async verifySubmitButtonsAreDisabled(isManager = false) {
+        if (!isManager) {
+            await expect(this.saveAsDraft_button).toBeDisabled();
+        }
+        await expect(this.sendForValidation_button).toBeDisabled();
+    }
+
+    async verifyInputTooltipMessageIsCorrect(message){
+        await expect(this.inputFieldTooltipMessage).toHaveText(message);
+    }
+
+    async verifyTooltipMessageNotExist(){
+        await expect(this.inputFieldTooltipMessage).not.toBeAttached();
+    }  
+    // #endregion Unit verifications
+
+    // #region Integrated verifications
 
     async verifyCommonViewIsCorrect(isManager = false) {
         await this.verifyCommonComponentsExist();
@@ -236,9 +260,9 @@ class ActivityReportPage extends Commonpage {
         else { await expect(this.dataTableMonthlyView).toHaveText(this.noData_text); }
     }
 
-    // #endregion
+    // #endregion Integrated verifications
 
-    // #endregion
+    // #endregion Verifications
 }
 
 module.exports = { ActivityReportPage }

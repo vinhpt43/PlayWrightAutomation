@@ -1,5 +1,8 @@
 class DateHelper {
 
+    static getToday(){
+        return this.formatDateToYYYYMMDD(new Date());
+    }
     static getNumberOfDaysOfAMonth(month, year) {
         return new Date(year, month, 0).getDate();
     }
@@ -34,11 +37,11 @@ class DateHelper {
     }
 
     static formatDateToYYYYMMDD(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-}
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
 }
 
 module.exports = { DateHelper }

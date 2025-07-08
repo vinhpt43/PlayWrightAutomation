@@ -1,8 +1,12 @@
-const activityReportData1 = require('./activityReportData1.json');
-const activityReportData2 = require('./activityReportData2.json');
-
+const oneMDproject = require('./oneMDproject.json');
+const twoMDprojects = require('./twoMDprojects.json');
+const oneMHproject = require('./oneMHproject.json');
+const twoMHprojects = require('./twoMHprojects.json');
+const oneMDoneMHprojects = require('./oneMDoneMHprojects.json');
 module.exports = {
-    activityReportData1,
-    activityReportData2
-
+    oneMDproject,
+    twoMDprojects,
+    oneMHproject,
+    twoMHprojects,
+    oneMDoneMHprojects
 };

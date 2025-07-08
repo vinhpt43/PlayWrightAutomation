@@ -2,19 +2,20 @@ const { test } = require('../../../utils/settings/customFixture');
 const testData = require('../../../utils/data/testData');
 const { DateHelper } = require('../../../utils/Helpers/DateHelper');
 
-// test.only('route API response', async ({ guardian, activityReportPage, userRoles }) => {
-// 	await guardian.impersonate(userRoles.CONSULTANT.name);
-// 	const fakeAR2 = testData.activityReportData2;
-// 	await activityReportPage.alterActivityReportResult(fakeAR2);
-// 	await activityReportPage.goToActivityReport();
-// 	await activityReportPage.page.pause();
-// });
-
-test('use ActivityMangementAPI', async ({ guardian, activityManagementAPI, userRoles }) => {
-	await guardian.impersonate(userRoles.CONSULTANT.name);
-	console.log(await activityManagementAPI.getActivityReport(userRoles.CONSULTANT.id, DateHelper.getFirstDayOfCurrentMonth(), DateHelper.getLastDayOfCurrentMonth()));
-	await activityManagementAPI.deleteDeclaration(165529);
+test.only('route API response', async ({ guardian, activityReportPage, userRoles }) => {
+	// await guardian.impersonate(userRoles.CONSULTANT.name);
+	const fakeAR2 = testData.oneMDproject;
+	await activityReportPage.alterActivityReportResult(fakeAR2);
+	await activityReportPage.goToActivityReport();
+	await activityReportPage.inputDeclarationByIndexOnMonthlyView(1,'0.001');
+	await activityReportPage.page.pause();
 });
+
+// test('use ActivityMangementAPI', async ({ guardian, activityManagementAPI, userRoles }) => {
+// 	await guardian.impersonate(userRoles.CONSULTANT.name);
+// 	console.log(await activityManagementAPI.getActivityReport(userRoles.CONSULTANT.id, DateHelper.getFirstDayOfCurrentMonth(), DateHelper.getLastDayOfCurrentMonth()));
+// 	await activityManagementAPI.deleteDeclaration(165529);
+// });
 
 
 // test('Verify the calendar on Monthly view is correct', async ({ activityReportPage, guardian, userRoles }) => {

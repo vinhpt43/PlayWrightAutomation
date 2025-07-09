@@ -1,16 +1,16 @@
 @ActivityReport 
 Feature: Activity Report
 
-# @Regression @UI
-# Scenario: Verify default view is correct
-# Given User is consultant
-# When User is on Activity Report page
-# Then User sees common view of managee
-# And User sees Activity Report data in Monthly view
-# Given User is manager
-# When User is on Activity Report page
-# Then User sees common view of manager
-# And User sees no Activity Report data in Monthly view
+@Regression @UI
+Scenario: Verify default view is correct
+Given User is consultant
+When User is on Activity Report page
+Then User sees common view of managee
+And User sees Activity Report data in Monthly view
+Given User is manager
+When User is on Activity Report page
+Then User sees common view of manager
+And User sees no Activity Report data in Monthly view
 
 @Regression @UI
 Scenario: 01_Verify user can declare maximum 1MD when there's only 1 MD project
@@ -44,7 +44,9 @@ Scenario: 02_Verify user can declare maximum 1MD when there are 2 MD projects
 Given User has two MD projects
 When User is on Activity Report page
 And User inputs '0.998' in project number '1'
-And User inputs '0.003' in project number '2'
+And User inputs '0' in project number '2'
+Then Input has tooltip message 'Please enter a number higher than 0'
+When User inputs '0.003' in project number '2'
 Then Input has tooltip message 'Please enter a number lower or equal to 0.002 MD - 0.016 MH which corresponds to the number of remaining effort you have to add for the selected day'
 And Submit buttons are disabled
 When User inputs '0.002' in project number '2'
@@ -122,3 +124,18 @@ And User inputs '7.992' in project number '2'
 And User inputs '0.001' in project number '1'
 Then Input has no tooltip
 And Submit buttons are enabled
+
+@Regression @UI
+Scenario: 06_Verify user can input 0 for ICO
+Given User has one MD project with ICO
+When User is on Activity Report page
+And User inputs '0' in project number '1'
+Then Input has tooltip message 'Please enter a number higher than 0'
+And Submit buttons are disabled
+When User inputs '0.998' in project number '1'
+And User inputs '0' in project number '2'
+Then Input has no tooltip
+And Submit buttons are enabled
+When User inputs '0.003' in project number '2'
+Then Input has tooltip message 'Please enter a number lower or equal to 0.002 MD - 0.016 MH which corresponds to the number of remaining effort you have to add for the selected day'
+And Submit buttons are disabled

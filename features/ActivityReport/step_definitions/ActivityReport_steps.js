@@ -55,6 +55,11 @@ Given('User has one MD and one MH projects', async function () {
     await this.activityReportPage.alterActivityReportResult(fakeAR);
 });
 
+Given('User has one MD project with ICO', async function () {
+    const fakeAR = testData.oneMDprojectWithICO;
+    await this.activityReportPage.alterActivityReportResult(fakeAR);
+});
+
 Then('Submit buttons are disabled', async function () {
     await this.activityReportPage.verifySubmitButtonsAreDisabled();
 })

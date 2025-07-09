@@ -7,5 +7,6 @@ module.exports = async () => {
   updateDateOfTrackingOfTestData('twoMDprojects.json');
   updateDateOfTrackingOfTestData('oneMHproject.json');
   updateDateOfTrackingOfTestData('twoMHprojects.json');
+  updateDateOfTrackingOfTestData('oneMDprojectWithICO.json');
   await loginARP();
 };

@@ -4,23 +4,25 @@
       "project": {
         "projectId": 1,
         "title": "P1",
-        "unit": "ManDay"
+        "unit": "ManHour"
       },
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-07",
+          "dateOfTracking": "2025-11-08",
+          "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
           "isCanDeclaration": true,
           "timeTrackingDetails": [
             {
-              "timeTrackingId": 176076,
+              "timeTrackingId": 1,
               "type": "Normal",
-              "timeTracked": 1,
+              "timeTracked": 4,
               "status": "Draft",
               "source": "ActivityManagement",
-              "unit": "ManDay"
+              "unit": "ManHour"
             }
           ]
         }
@@ -35,22 +37,61 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-07",
+          "dateOfTracking": "2025-11-08",
+          "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
           "isCanDeclaration": true,
-          "timeTrackingDetails": []
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 1,
+              "type": "Normal",
+              "timeTracked": 0.5,
+              "status": "Draft",
+              "source": "ActivityManagement",
+              "unit": "ManDay"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "project": null,
+      "nonBillableEvent": {
+        "nonBillableEventId": 1,
+        "label": "Presales",
+        "unit": "ManHour"
+      },
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-11-08",
+          "isInProjectPeriod": true,
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 1,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "Draft",
+              "source": "ActivityManagement",
+              "unit": "ManHour"
+            }
+          ]
         }
       ]
     }
   ],
   "summaries": [
     {
-      "dateOfTracking": "2025-11-07",
-      "totalEffortInManDay": 0,
-      "totalEffortInManHour": 0,
-      "remainingEffortInManDay": 1,
-      "remainingEffortInManHour": 8
+      "dateOfTracking": "2025-11-08",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
     }
   ],
   "absences": []

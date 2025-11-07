@@ -60,6 +60,11 @@ Given('User has one MD project with ICO', async function () {
     await this.activityReportPage.alterActivityReportResult(fakeAR);
 });
 
+Given('User has declared efforts', async function () {
+    const fakeAR = testData.editDeclarations;
+    await this.activityReportPage.alterActivityReportResult(fakeAR);
+});
+
 Then('Submit buttons are disabled', async function () {
     await this.activityReportPage.verifySubmitButtonsAreDisabled();
 })
@@ -68,14 +73,28 @@ Then('Submit buttons are enabled', async function () {
     await this.activityReportPage.verifySubmitButtonsAreEnabled();
 })
 
+Then('Save button is disabled', async function () {
+    await this.activityReportPage.verifySaveEditionButtonIsDisabled();
+})
+
+Then('Save button is enabled', async function () {
+    await this.activityReportPage.verifySaveEditionButtonIsEnabled();
+})
+
 When('User inputs {string} in project number {string}', async function (value, index) {
     await this.activityReportPage.inputDeclarationByIndexOnMonthlyView(index, value);
 });
 
+When('User edits {string} in project number {string}', async function (value, index) {
+    await this.activityReportPage.clickOnDeclaredEffortByIndexOnMonthlyView(index);
+	await this.activityReportPage.selectEditDeclarationOption();
+	await this.activityReportPage.modifyDeclaredEffort(value);
+});
+
 Then('Input has tooltip message {string}', async function (message) {
-    await this.activityReportPage.verifyInputTooltipMessageIsCorrect(message);
+    await this.activityReportPage.verifyInputTooltipErrorMessageIsCorrect(message);
 });
 
 Then('Input has no tooltip', async function () {
-    await this.activityReportPage.verifyTooltipMessageNotExist();
+    await this.activityReportPage.verifyTooltipErrorMessageNotExist();
 });

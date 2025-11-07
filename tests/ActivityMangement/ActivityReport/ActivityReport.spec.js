@@ -8,10 +8,13 @@ test.only('route API response', async ({ guardian, activityReportPage, userRoles
 	await activityReportPage.alterActivityReportResult(fakeAR2);
 	await activityReportPage.goToActivityReport();
 	// await activityReportPage.inputDeclarationByIndexOnMonthlyView(1,'0.001');
+	await activityReportPage.hoverOnDeclaredEffortByIndexOnMonthlyView(1);
+	await activityReportPage.verifyTooltipStatusIsCorrect('Draft');
 	await activityReportPage.clickOnDeclaredEffortByIndexOnMonthlyView(1);
 	await activityReportPage.selectEditDeclarationOption();
-	await activityReportPage.modifyDeclaredEffort('0.5');
-	await activityReportPage.page.pause();
+	await activityReportPage.modifyDeclaredEffort('1.5');
+	await activityReportPage.verifyInputTooltipErrorMessageIsCorrect('Please enter a number lower or equal to 1 M/D - 8 M/H which corresponds to the number of remaining effort you have to add for the selected day');
+	// await activityReportPage.page.pause();
 });
 
 // test('use ActivityMangementAPI', async ({ guardian, activityManagementAPI, userRoles }) => {

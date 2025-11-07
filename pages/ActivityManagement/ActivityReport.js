@@ -21,6 +21,7 @@ class ActivityReportPage extends Commonpage {
         this.sendForValidation_button = this.page.getByRole('button', { name: 'Send for validation' });
         this.declareOnBehalf_button = this.page.getByRole('button', { name: 'Declare on behalf' });
         this.activityReport_button = this.page.getByRole('button', { name: 'Activity report' });
+        this.saveEdition_button = this.page.getByRole('button', { name: 'Save' , exact: true});
         this.editDeclaration_option = this.page.getByText('Edit declaration');
         this.declarationsHistory_option = this.page.getByText('Declarations history');
         this.comment_option = this.page.getByText('Comment');
@@ -58,7 +59,9 @@ class ActivityReportPage extends Commonpage {
         //#endregion Inputs
 
         //#region Tooltips
-        this.inputFieldTooltipMessage = this.page.locator('[id^="q-portal--tooltip--"]');
+        this.inputTooltipErrorMessage = this.page.locator('div[role="tooltip"].bg-red');
+        this.tooltipStatus = this.page.locator('div[role="tooltip"][style*="background-color"]');
+        this.genericTooltic = this.page.locator('div[role="tooltip"]:not([style*="background-color"]):not(.bg-red)');
         //#endregion Tooltips
 
         //#endregion Locators
@@ -186,6 +189,10 @@ class ActivityReportPage extends Commonpage {
         await this.declaredEffort.nth(index - 1).click();
     }
 
+    async hoverOnDeclaredEffortByIndexOnMonthlyView(index) {
+        await this.declaredEffort.nth(index - 1).hover();
+    }
+
     async selectEditDeclarationOption() {
         await this.editDeclaration_option.click();
     }
@@ -202,7 +209,7 @@ class ActivityReportPage extends Commonpage {
         await this.delete_option.click();
     }
 
-    async modifyDeclaredEffort(newValue){
+    async modifyDeclaredEffort(newValue) {
         await this.declaredEffortEditField.fill(newValue);
     }
     // #endregion Unit actions
@@ -263,12 +270,24 @@ class ActivityReportPage extends Commonpage {
         await expect(this.sendForValidation_button).toBeDisabled();
     }
 
-    async verifyInputTooltipMessageIsCorrect(message) {
-        await expect(this.inputFieldTooltipMessage).toHaveText(message);
+    async verifySaveEditionButtonIsDisabled() {
+        await expect(this.saveEdition_button).toBeDisabled();
     }
 
-    async verifyTooltipMessageNotExist() {
-        await expect(this.inputFieldTooltipMessage).not.toBeAttached();
+    async verifySaveEditionButtonIsEnabled() {
+        await expect(this.saveEdition_button).toBeEnabled();
+    }
+
+    async verifyInputTooltipErrorMessageIsCorrect(message) {
+        await expect(this.inputTooltipErrorMessage).toHaveText(message);
+    }
+
+    async verifyTooltipErrorMessageNotExist() {
+        await expect(this.inputTooltipErrorMessage).not.toBeAttached();
+    }
+
+    async verifyTooltipStatusIsCorrect(status) {
+        await expect(this.tooltipStatus).toHaveText(status);
     }
     // #endregion Unit verifications
 

@@ -5,17 +5,21 @@ const path = require('path');
 
 async function loginARP() {
     //Init browser in head mode to input password manually later
-    const browser = await chromium.launch({headless:false});
+    const browser = await chromium.launch({ headless: false });
     const context = await browser.newContext();
     const page = await context.newPage();
 
     //Declare web objects
+    const microsoft_username_txtbox = page.getByPlaceholder('Email, phone, or Skype');
+    const next_btn = page.getByRole('button', { name: 'Next' });
     const username_txtbox = page.getByRole('textbox', { name: 'username' });
     const continue_btn = page.getByRole('button', { name: 'Continue' });
     const password_txtbox = page.getByRole('textbox', { name: 'password' });
     const rememberLogin_checkbox = page.getByText('Remember this device for 30 days');
+    const showAgain_checkbox = page.getByText("Don't show this again");
+    const yes_btn = page.getByRole('button', { name: 'Yes' });
 
-    const targetUrl = 'https://auth.mantu.com/oauth/token';
+    const targetUrl = 'https://login.microsoftonline.com/ce57ebe3-a63d-4708-b5cf-c274b48bd26c/oauth2/v2.0/token';//'https://auth.mantu.com/oauth/token';
     page.on('response', async response => {
         // Check if the response URL matches the target URL
         if (response.url() === targetUrl) {
@@ -28,14 +32,16 @@ async function loginARP() {
 
     //Go to any ARP app to open login portal
     await page.goto("https://am.intearp.mantu.com");
+    //Fill in username in Microsoft interface
+    await microsoft_username_txtbox.fill(LOGIN.USERNAME);
+    await next_btn.click();
     //Fill in username and password and proceed to log in
     await username_txtbox.fill(LOGIN.USERNAME);
     await continue_btn.click();
-    // await password_txtbox.fill('');
-    // await continue_btn.click();
     await rememberLogin_checkbox.click();
     await continue_btn.click();
-
+    await showAgain_checkbox.click();
+    await yes_btn.click();
     //Wait for token api to get access token after logging in
     await page.waitForResponse(response => response.url() === targetUrl && response.status() === 200);
 

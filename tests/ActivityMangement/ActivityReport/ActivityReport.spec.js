@@ -4,10 +4,13 @@ const { DateHelper } = require('../../../utils/Helpers/DateHelper');
 
 test.only('route API response', async ({ guardian, activityReportPage, userRoles }) => {
 	// await guardian.impersonate(userRoles.CONSULTANT.name);
-	const fakeAR2 = testData.oneMDproject;
+	const fakeAR2 = testData.editDeclarations;
 	await activityReportPage.alterActivityReportResult(fakeAR2);
 	await activityReportPage.goToActivityReport();
-	await activityReportPage.inputDeclarationByIndexOnMonthlyView(1,'0.001');
+	// await activityReportPage.inputDeclarationByIndexOnMonthlyView(1,'0.001');
+	await activityReportPage.clickOnDeclaredEffortByIndexOnMonthlyView(1);
+	await activityReportPage.selectEditDeclarationOption();
+	await activityReportPage.modifyDeclaredEffort('0.5');
 	await activityReportPage.page.pause();
 });
 

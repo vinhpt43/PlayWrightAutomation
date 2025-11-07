@@ -9,9 +9,11 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-07-01",
+          "dateOfTracking": "2025-11-07",
+          "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
           "isCanDeclaration": true,
           "timeTrackingDetails": []
         }
@@ -26,9 +28,11 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-07-01",
+          "dateOfTracking": "2025-11-07",
+          "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
           "isCanDeclaration": true,
           "timeTrackingDetails": []
         }
@@ -37,7 +41,7 @@
   ],
   "summaries": [
     {
-      "dateOfTracking": "2025-07-01",
+      "dateOfTracking": "2025-11-07",
       "totalEffortInManDay": 0,
       "totalEffortInManHour": 0,
       "remainingEffortInManDay": 1,

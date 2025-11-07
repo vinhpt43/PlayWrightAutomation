@@ -4,6 +4,7 @@ const oneMHproject = require('./oneMHproject.json');
 const twoMHprojects = require('./twoMHprojects.json');
 const oneMDoneMHprojects = require('./oneMDoneMHprojects.json');
 const oneMDprojectWithICO = require('./oneMDprojectWithICO.json');
+const editDeclarations = require('./editDeclarations.json');
 
 module.exports = {
     oneMDproject,
@@ -11,5 +12,6 @@ module.exports = {
     oneMHproject,
     twoMHprojects,
     oneMDoneMHprojects,
-    oneMDprojectWithICO
+    oneMDprojectWithICO,
+    editDeclarations
 };

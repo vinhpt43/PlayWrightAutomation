@@ -21,6 +21,10 @@ class ActivityReportPage extends Commonpage {
         this.sendForValidation_button = this.page.getByRole('button', { name: 'Send for validation' });
         this.declareOnBehalf_button = this.page.getByRole('button', { name: 'Declare on behalf' });
         this.activityReport_button = this.page.getByRole('button', { name: 'Activity report' });
+        this.editDeclaration_option = this.page.getByText('Edit declaration');
+        this.declarationsHistory_option = this.page.getByText('Declarations history');
+        this.comment_option = this.page.getByText('Comment');
+        this.delete_option = this.page.getByText('Delete');
         //#endregion Buttons
 
         //#region Tables
@@ -42,11 +46,15 @@ class ActivityReportPage extends Commonpage {
         this.projectsOfDayCellsOfCurrentMonth = this.projectsGroupOfDayCellsOfCurrentMonth.locator('xpath=' + this.projectsOfDayCellsOfCurrentMonth_xpath);
 
         this.dayCellsWithOFF = this.projectsGroupOfDayCellsOfCurrentMonth.locator('xpath=/div[@class="text-bold"]');
+
+        this.declaredEffort_xpath = '/div/div[2]//span';
+        this.declaredEffort = this.dayCellsOfCurrentMonth_td.locator('xpath=' + this.declaredEffort_xpath);
         //#endregion Tables
 
         //#region Inputs
         this.declarationFieldsMonthlyView = this.dataTableMonthlyView.getByRole('textbox');
         this.declarationFieldsWeeklyView = this.dataTableWeeklyView.getByRole('textbox');
+        this.declaredEffortEditField = this.page.getByText('Declared effort').locator('xpath=/following-sibling::label//input');
         //#endregion Inputs
 
         //#region Tooltips
@@ -170,8 +178,32 @@ class ActivityReportPage extends Commonpage {
         catch (error) { throw error }
     }
 
-    async inputDeclarationByIndexOnMonthlyView(index, value){
+    async inputDeclarationByIndexOnMonthlyView(index, value) {
         await this.declarationFieldsMonthlyView.nth(index - 1).fill(value);
+    }
+
+    async clickOnDeclaredEffortByIndexOnMonthlyView(index) {
+        await this.declaredEffort.nth(index - 1).click();
+    }
+
+    async selectEditDeclarationOption() {
+        await this.editDeclaration_option.click();
+    }
+
+    async selectDeclarationsHistoryOption() {
+        await this.declarationsHistory_option.click();
+    }
+
+    async selectCommentOption() {
+        await this.comment_option.click();
+    }
+
+    async selectDeleteOption() {
+        await this.delete_option.click();
+    }
+
+    async modifyDeclaredEffort(newValue){
+        await this.declaredEffortEditField.fill(newValue);
     }
     // #endregion Unit actions
 
@@ -231,13 +263,13 @@ class ActivityReportPage extends Commonpage {
         await expect(this.sendForValidation_button).toBeDisabled();
     }
 
-    async verifyInputTooltipMessageIsCorrect(message){
+    async verifyInputTooltipMessageIsCorrect(message) {
         await expect(this.inputFieldTooltipMessage).toHaveText(message);
     }
 
-    async verifyTooltipMessageNotExist(){
+    async verifyTooltipMessageNotExist() {
         await expect(this.inputFieldTooltipMessage).not.toBeAttached();
-    }  
+    }
     // #endregion Unit verifications
 
     // #region Integrated verifications

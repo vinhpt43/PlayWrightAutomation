@@ -2,6 +2,7 @@ const { request } = require('@playwright/test');
 const { CONFIG } = require("../data/setupData/constants");
 const fs = require('fs');
 const path = require('path');
+const { json } = require('stream/consumers');
 
 class GuardianAPI {
 
@@ -19,7 +20,8 @@ class GuardianAPI {
         return this;
     }
 
-    async impersonate(employeeName) {
+    async impersonate(employee) {
+        const employeeName = JSON.parse(JSON.stringify(employee,null,2)).name;
 
         const queryParams = new URLSearchParams({
             onlyActiveUsers: 'true',

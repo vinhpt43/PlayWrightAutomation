@@ -74,27 +74,34 @@ Then('Submit buttons are enabled', async function () {
 })
 
 Then('Save button is disabled', async function () {
-    await this.activityReportPage.verifySaveEditionButtonIsDisabled();
+    await this.activityReportPage.verifySaveButtonIsDisabled();
 })
 
 Then('Save button is enabled', async function () {
-    await this.activityReportPage.verifySaveEditionButtonIsEnabled();
+    await this.activityReportPage.verifySaveButtonIsEnabled();
 })
 
 When('User inputs {string} in project number {string}', async function (value, index) {
     await this.activityReportPage.inputDeclarationByIndexOnMonthlyView(index, value);
 });
 
-When('User edits {string} in project number {string}', async function (value, index) {
+When('User edits declared effort of project number {string}', async function (index) {
     await this.activityReportPage.clickOnDeclaredEffortByIndexOnMonthlyView(index);
-	await this.activityReportPage.selectEditDeclarationOption();
-	await this.activityReportPage.modifyDeclaredEffort(value);
+    await this.activityReportPage.selectEditDeclarationOption();
+});
+
+When('User modifies the effort to {string}', async function (value) {
+    await this.activityReportPage.modifyDeclaredEffort(value);
 });
 
 Then('Input has tooltip message {string}', async function (message) {
-    await this.activityReportPage.verifyInputTooltipErrorMessageIsCorrect(message);
+    await this.activityReportPage.verifyTooltipErrorMessageIsCorrect(message);
 });
 
 Then('Input has no tooltip', async function () {
     await this.activityReportPage.verifyTooltipErrorMessageNotExist();
+});
+
+When('User cancels edition', async function () {
+    await this.activityReportPage.clickOnCancel();
 });

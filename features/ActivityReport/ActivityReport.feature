@@ -140,28 +140,47 @@ When User inputs '0.003' in project number '2'
 Then Input has tooltip message 'Please enter a number lower or equal to 0.002 MD - 0.016 MH which corresponds to the number of remaining effort you have to add for the selected day'
 And Submit buttons are disabled
 
-@Regression @UI @debug
-Scenario: 08_Verify user can edit maximum 1MD when there's only 1 MD project
+@Regression @UI
+Scenario: 08_Verify user can edit maximum 1MD/8MH in a day
 Given User has declared efforts
 When User is on Activity Report page
-When User edits '8.001' in project number '1'
+When User edits declared effort of project number '1'
+And User modifies the effort to '4.001'
 Then Input has tooltip message 'Please enter a number lower or equal to 0.5 M/D - 4 M/H which corresponds to the number of remaining effort you have to add for the selected day'
 And Save button is disabled
-# When User inputs '0' in project number '1'
-# Then Input has tooltip message 'Please enter a number higher than 0'
-# And Submit buttons are disabled
-# When User inputs 'a' in project number '1'
-# Then Input has tooltip message 'Please enter a number as an effort'
-# And Submit buttons are disabled
-# When User inputs '-1' in project number '1'
-# Then Input has tooltip message 'Please enter a number as an effort'
-# And Submit buttons are disabled
-# When User inputs '0.001' in project number '1'
-# Then Input has no tooltip
-# And Submit buttons are enabled
-# When User inputs '0,999' in project number '1'
-# Then Input has no tooltip
-# And Submit buttons are enabled
-# When User inputs '1' in project number '1'
-# Then Input has no tooltip
-# And Submit buttons are enabled
+When User modifies the effort to '-1'
+Then Input has tooltip message 'Please enter a number as an effort'
+And Save button is disabled
+When User modifies the effort to 'a'
+Then Input has tooltip message 'Please enter a number as an effort'
+And Save button is disabled
+When User modifies the effort to '0'
+Then Input has tooltip message 'Please enter a number higher than 0'
+And Save button is disabled
+When User modifies the effort to '3.999'
+Then Input has no tooltip
+And Save button is enabled
+When User cancels edition
+When User edits declared effort of project number '2'
+And User modifies the effort to '0.501'
+Then Input has tooltip message 'Please enter a number lower or equal to 0.5 M/D - 4 M/H which corresponds to the number of remaining effort you have to add for the selected day'
+And Save button is disabled
+When User modifies the effort to '0'
+Then Input has no tooltip
+And Save button is enabled
+When User modifies the effort to '0.499'
+And Save button is enabled
+When User cancels edition
+When User edits declared effort of project number '3'
+When User modifies the effort to '-1'
+Then Input has tooltip message 'Please enter a number as an effort'
+And Save button is disabled
+When User modifies the effort to 'a'
+Then Input has tooltip message 'Please enter a number as an effort'
+And Save button is disabled
+When User modifies the effort to '0'
+Then Input has tooltip message 'Please enter a number higher than 0'
+And Save button is disabled
+When User modifies the effort to '8.001'
+Then Input has no tooltip
+And Save button is enabled

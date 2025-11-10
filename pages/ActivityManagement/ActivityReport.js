@@ -6,7 +6,6 @@ const { DateHelper } = require('../../utils/Helpers/DateHelper');
 const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../../utils/data/setupData/constants');
 const ignoreAppAnnouncement = require('../../utils/data/setupData/ignoreAppAnnouncement.json');
 const ignoreExpressYourself = require('../../utils/data/setupData/ignoreExpressYourself.json');
-const { text } = require('stream/consumers');
 
 class ActivityReportPage extends Commonpage {
     constructor(page) {
@@ -15,13 +14,14 @@ class ActivityReportPage extends Commonpage {
         //#region Locators
 
         //#region Buttons
-        this.weekly_view = this.page.getByText('Weekly');
-        this.month_view = this.page.getByText('Monthly');
         this.saveAsDraft_button = this.page.getByRole('button', { name: 'Save as draft' });
         this.sendForValidation_button = this.page.getByRole('button', { name: 'Send for validation' });
         this.declareOnBehalf_button = this.page.getByRole('button', { name: 'Declare on behalf' });
         this.activityReport_button = this.page.getByRole('button', { name: 'Activity report' });
-        this.saveEdition_button = this.page.getByRole('button', { name: 'Save' , exact: true});
+        this.save_button = this.page.getByRole('button', { name: 'Save', exact: true });
+        this.cancel_button = this.page.getByRole('button', { name: 'Cancel' });
+        this.weekly_view = this.page.getByText('Weekly');
+        this.month_view = this.page.getByText('Monthly');
         this.editDeclaration_option = this.page.getByText('Edit declaration');
         this.declarationsHistory_option = this.page.getByText('Declarations history');
         this.comment_option = this.page.getByText('Comment');
@@ -212,6 +212,22 @@ class ActivityReportPage extends Commonpage {
     async modifyDeclaredEffort(newValue) {
         await this.declaredEffortEditField.fill(newValue);
     }
+
+    async clickOnSaveAsDraft() {
+        await this.saveAsDraft_button.click();
+    }
+
+    async clickOnSendForValidation() {
+        await this.sendForValidation_button.click();
+    }
+
+    async clickOnSave() {
+        await this.save_button.click();
+    }
+
+    async clickOnCancel() {
+        await this.cancel_button.click();
+    }
     // #endregion Unit actions
 
     // #region Integrated actions
@@ -270,15 +286,15 @@ class ActivityReportPage extends Commonpage {
         await expect(this.sendForValidation_button).toBeDisabled();
     }
 
-    async verifySaveEditionButtonIsDisabled() {
-        await expect(this.saveEdition_button).toBeDisabled();
+    async verifySaveButtonIsDisabled() {
+        await expect(this.save_button).toBeDisabled();
     }
 
-    async verifySaveEditionButtonIsEnabled() {
-        await expect(this.saveEdition_button).toBeEnabled();
+    async verifySaveButtonIsEnabled() {
+        await expect(this.save_button).toBeEnabled();
     }
 
-    async verifyInputTooltipErrorMessageIsCorrect(message) {
+    async verifyTooltipErrorMessageIsCorrect(message) {
         await expect(this.inputTooltipErrorMessage).toHaveText(message);
     }
 

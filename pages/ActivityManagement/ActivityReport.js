@@ -50,6 +50,12 @@ class ActivityReportPage extends Commonpage {
 
         this.declaredEffort_xpath = '/div/div[2]//span';
         this.declaredEffort = this.dayCellsOfCurrentMonth_td.locator('xpath=' + this.declaredEffort_xpath);
+
+        this.totalPerDay_xpath = '/div/div[3]';
+        this.totalPerDay = this.dayCellsOfCurrentMonth_td.locator('xpath=' + this.totalPerDay_xpath);
+
+        this.expandProjectsList_button_xpath = 'td[1]//button//i[@class="q-icon"]';
+        this.expandProjectsList_button = this.weekRowsOnCalendar.locator('xpath=' + this.expandProjectsList_button_xpath);
         //#endregion Tables
 
         //#region Inputs
@@ -185,6 +191,10 @@ class ActivityReportPage extends Commonpage {
         await this.declarationFieldsMonthlyView.nth(index - 1).fill(value);
     }
 
+    async expandProjectsList() {
+        await this.expandProjectsList_button.click();
+    }
+
     async clickOnDeclaredEffortByIndexOnMonthlyView(index) {
         await this.declaredEffort.nth(index - 1).click();
     }
@@ -304,6 +314,15 @@ class ActivityReportPage extends Commonpage {
 
     async verifyTooltipStatusIsCorrect(status) {
         await expect(this.tooltipStatus).toHaveText(status);
+    }
+
+    async verifyTotalPerDayIsCorrect(manDay, manHour) {
+        if (manDay !== null) {
+            await expect(this.totalPerDay).toContainText(manDay + ' MD');
+        }
+        if (manHour !== null) {
+            await expect(this.totalPerDay).toContainText(manHour + ' MH');
+        }
     }
     // #endregion Unit verifications
 

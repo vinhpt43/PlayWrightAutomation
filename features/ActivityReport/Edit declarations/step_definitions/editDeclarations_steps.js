@@ -6,6 +6,10 @@ Given('User has declared efforts', async function () {
     await this.activityReportPage.alterActivityReportResult(fakeAR);
 });
 
+When('User expands the projects list', async function () {
+    await this.activityReportPage.expandProjectsList();
+});
+
 Then('Save button is disabled', async function () {
     await this.activityReportPage.verifySaveButtonIsDisabled();
 })

@@ -19,8 +19,92 @@
             {
               "timeTrackingId": 1,
               "type": "Normal",
-              "timeTracked": 4,
+              "timeTracked": 1,
               "status": "Draft",
+              "source": "ActivityManagement",
+              "unit": "ManHour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "project": {
+        "projectId": 2,
+        "title": "P2",
+        "unit": "ManHour"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-11-11",
+          "isInProjectPeriod": true,
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 1,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "Pending",
+              "source": "ActivityManagement",
+              "unit": "ManHour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "project": {
+        "projectId": 3,
+        "title": "P3",
+        "unit": "ManHour"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-11-11",
+          "isInProjectPeriod": true,
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 1,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "Rejected",
+              "source": "ActivityManagement",
+              "unit": "ManHour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "project": {
+        "projectId": 4,
+        "title": "P4",
+        "unit": "ManHour"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-11-11",
+          "isInProjectPeriod": true,
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 1,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "Valid",
               "source": "ActivityManagement",
               "unit": "ManHour"
             }

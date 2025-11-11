@@ -18,7 +18,7 @@ Then('Save button is enabled', async function () {
     await this.activityReportPage.verifySaveButtonIsEnabled();
 })
 
-When('User edits declared effort of project number {string}', async function (index) {
+When('User edits declared effort number {string}', async function (index) {
     await this.activityReportPage.clickOnDeclaredEffortByIndexOnMonthlyView(index);
     await this.activityReportPage.selectEditDeclarationOption();
 });

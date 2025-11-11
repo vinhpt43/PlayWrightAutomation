@@ -1,6 +1,6 @@
 export const USER_ROLES = {
     CONSULTANT: { name: 'lehouque francois', id: 23845 },
-    MAINMANAGER: { name: 'sana brunet' },
+    MAINMANAGER: { name: 'grandin alexandre' },
     PROJECTMANAGER: { name: 'choplain gregoire' }
 };
 

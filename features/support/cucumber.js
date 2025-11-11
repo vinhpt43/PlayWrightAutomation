@@ -1,8 +1,11 @@
 module.exports = {
-  default: [
-    '--require', 'hooks.js',
-    '--require', 'customWorld.js',
-    '--require', 'features/**/*.js',
-    '--format', 'summary'
-  ].join(' ')
+  default: {
+    features: 'features/**/*.feature',
+    require: [
+      'hooks.js',
+      'customWorld.js',
+      'features/**/*.js'
+    ],
+    format: ['summary']
+  }
 };

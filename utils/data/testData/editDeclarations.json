@@ -9,7 +9,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-10",
+          "dateOfTracking": "2025-11-11",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -37,7 +37,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-10",
+          "dateOfTracking": "2025-11-11",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -48,7 +48,7 @@
               "timeTrackingId": 1,
               "type": "Normal",
               "timeTracked": 0.5,
-              "status": "Draft",
+              "status": "Pending",
               "source": "ActivityManagement",
               "unit": "ManDay"
             }
@@ -60,12 +60,12 @@
       "project": null,
       "nonBillableEvent": {
         "nonBillableEventId": 1,
-        "label": "Presales",
+        "label": "O1",
         "unit": "ManHour"
       },
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-10",
+          "dateOfTracking": "2025-11-11",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -76,7 +76,35 @@
               "timeTrackingId": 1,
               "type": "Normal",
               "timeTracked": 1,
-              "status": "Draft",
+              "status": "Rejected",
+              "source": "ActivityManagement",
+              "unit": "ManHour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "project": null,
+      "nonBillableEvent": {
+        "nonBillableEventId": 2,
+        "label": "O2",
+        "unit": "ManHour"
+      },
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2025-11-11",
+          "isInProjectPeriod": true,
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
+          "isCanDeclaration": true,
+          "timeTrackingDetails": [
+            {
+              "timeTrackingId": 1,
+              "type": "Normal",
+              "timeTracked": 1,
+              "status": "Valid",
               "source": "ActivityManagement",
               "unit": "ManHour"
             }
@@ -87,7 +115,7 @@
   ],
   "summaries": [
     {
-      "dateOfTracking": "2025-11-10",
+      "dateOfTracking": "2025-11-11",
       "totalEffortInManDay": 1,
       "totalEffortInManHour": 8,
       "remainingEffortInManDay": 0,

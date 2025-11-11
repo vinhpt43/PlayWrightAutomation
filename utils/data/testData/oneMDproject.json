@@ -9,7 +9,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-10",
+          "dateOfTracking": "2025-11-11",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -22,7 +22,7 @@
   ],
   "summaries": [
     {
-      "dateOfTracking": "2025-11-10",
+      "dateOfTracking": "2025-11-11",
       "totalEffortInManDay": 0,
       "totalEffortInManHour": 0,
       "remainingEffortInManDay": 1,

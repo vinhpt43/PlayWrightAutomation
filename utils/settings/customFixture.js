@@ -9,7 +9,7 @@ exports.test = base.extend({
   guardian: async ({ }, use) => {
     const guardian = await (new GuardianAPI()).init();
     await use(guardian);
-    await guardian.revert();
+    // await guardian.revert();
   },
   userRoles: async ({ }, use) => {
     await use(USER_ROLES);

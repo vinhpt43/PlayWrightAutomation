@@ -4,18 +4,22 @@ const { DateHelper } = require('../../../utils/Helpers/DateHelper');
 
 test.only('route API response', async ({ guardian, activityReportPage, userRoles }) => {
 	// await guardian.impersonate(userRoles.CONSULTANT.name);
-	const fakeAR2 = testData.editDeclarations;
+	const fakeAR2 = testData.oneMDproject;
 	await activityReportPage.alterActivityReportResult(fakeAR2);
 	await activityReportPage.goToActivityReport();
-	await activityReportPage.verifyTotalPerDayIsCorrect(0.5, 4);
+	await activityReportPage.openAddOtherActivitiesForm();
+	await activityReportPage.verifyAddOtherActivitiesFormAppears();
+	// await activityReportPage.verifyTotalPerDayIsCorrect(0.5, 4);
 	// await activityReportPage.inputDeclarationByIndexOnMonthlyView(1,'0.001');
-	// await activityReportPage.hoverOnDeclaredEffortByIndexOnMonthlyView(1);
-	// await activityReportPage.verifyTooltipStatusIsCorrect('Draft');
+	// await activityReportPage.hoverOnDeclaredEffortByIndexOnMonthlyView(2);
+	// await activityReportPage.verifyTooltipStatusIsCorrect('Pending for validation');
+	// await activityReportPage.hoverOnHasRejectedDeclarationsIcon();
+	// await activityReportPage.verifyGenericTooltipMessageIsCorrect('2 rejected');
 	// await activityReportPage.clickOnDeclaredEffortByIndexOnMonthlyView(1);
 	// await activityReportPage.selectEditDeclarationOption();
 	// await activityReportPage.modifyDeclaredEffort('1.5');
 	// await activityReportPage.verifyInputTooltipErrorMessageIsCorrect('Please enter a number lower or equal to 1 M/D - 8 M/H which corresponds to the number of remaining effort you have to add for the selected day');
-	// await activityReportPage.page.pause();
+	await activityReportPage.page.pause();
 });
 
 // test('use ActivityMangementAPI', async ({ guardian, activityManagementAPI, userRoles }) => {

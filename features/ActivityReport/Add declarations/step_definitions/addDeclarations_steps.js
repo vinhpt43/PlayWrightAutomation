@@ -59,3 +59,11 @@ Then('Submit buttons are enabled', async function () {
 When('User inputs {string} in project number {string}', async function (value, index) {
     await this.activityReportPage.inputDeclarationByIndexOnMonthlyView(index, value);
 });
+
+When('User clicks on Add Other Activities button', async function () {
+    await this.activityReportPage.openAddOtherActivitiesForm();
+})
+
+Then('Add Other Activities form appears', async function () {
+    await this.activityReportPage.verifyAddOtherActivitiesFormAppears();
+})

@@ -37,6 +37,9 @@ class ActivityReportPage extends Commonpage {
         this.dayCellsOfCurrentMonth_td = this.page.locator('xpath=//div[@class="flex column"]//tbody//td[./div[1][(./*)]][./div/div[2][./div[(./*)]]]');
         this.dateOfDayCellsOfCurrentMonth = this.dayCellsOfCurrentMonth_td.locator(this.dateOfAllDaysOnCalendar_xpath);
 
+        this.addOtherActivities_button_xpath = '//button//i[@class="q-icon"]';
+        this.addOtherActivities_button = this.dayCellsOfCurrentMonth_td.locator(this.addOtherActivities_button_xpath);
+
         this.ICOrows_xpath = '//div[contains(@class,"ico")]';
         this.ICOrows = this.page.locator('xpath=' + this.ICOrows_xpath);
 
@@ -56,6 +59,8 @@ class ActivityReportPage extends Commonpage {
 
         this.expandProjectsList_button_xpath = 'td[1]//button//i[@class="q-icon"]';
         this.expandProjectsList_button = this.weekRowsOnCalendar.locator('xpath=' + this.expandProjectsList_button_xpath);
+
+        this.hasRejectedDeclarations_icon = this.page.locator('i[class="q-icon text-red"]');
         //#endregion Tables
 
         //#region Inputs
@@ -67,8 +72,12 @@ class ActivityReportPage extends Commonpage {
         //#region Tooltips
         this.inputTooltipErrorMessage = this.page.locator('div[role="tooltip"].bg-red');
         this.tooltipStatus = this.page.locator('div[role="tooltip"][style*="background-color"]');
-        this.genericTooltic = this.page.locator('div[role="tooltip"]:not([style*="background-color"]):not(.bg-red)');
+        this.genericTooltip = this.page.locator('div[role="tooltip"]:not([style*="background-color"]):not(.bg-red)');
         //#endregion Tooltips
+
+        //#region Forms
+        this.addOtherActivitiesForm = this.page.getByText('Add Other Activities');
+        //#endregion Forms
 
         //#endregion Locators
 
@@ -203,6 +212,10 @@ class ActivityReportPage extends Commonpage {
         await this.declaredEffort.nth(index - 1).hover();
     }
 
+    async hoverOnHasRejectedDeclarationsIcon() {
+        await this.hasRejectedDeclarations_icon.hover();
+    }
+
     async selectEditDeclarationOption() {
         await this.editDeclaration_option.click();
     }
@@ -237,6 +250,11 @@ class ActivityReportPage extends Commonpage {
 
     async clickOnCancel() {
         await this.cancel_button.click();
+    }
+
+    async openAddOtherActivitiesForm() {
+        await this.dayCellsOfCurrentMonth_td.hover();
+        await this.addOtherActivities_button.click();
     }
     // #endregion Unit actions
 
@@ -305,6 +323,7 @@ class ActivityReportPage extends Commonpage {
     }
 
     async verifyTooltipErrorMessageIsCorrect(message) {
+        await expect(this.tooltipStatus).toHaveCount(1);
         await expect(this.inputTooltipErrorMessage).toHaveText(message);
     }
 
@@ -313,7 +332,13 @@ class ActivityReportPage extends Commonpage {
     }
 
     async verifyTooltipStatusIsCorrect(status) {
+        await expect(this.tooltipStatus).toHaveCount(1);
         await expect(this.tooltipStatus).toHaveText(status);
+    }
+
+    async verifyGenericTooltipMessageIsCorrect(message) {
+        await expect(this.genericTooltip).toHaveCount(1);
+        await expect(this.genericTooltip).toHaveText(message);
     }
 
     async verifyTotalPerDayIsCorrect(manDay, manHour) {
@@ -323,6 +348,10 @@ class ActivityReportPage extends Commonpage {
         if (manHour !== null) {
             await expect(this.totalPerDay).toContainText(manHour + ' MH');
         }
+    }
+
+    async verifyAddOtherActivitiesFormAppears() {
+        await expect(this.addOtherActivitiesForm).toBeVisible();
     }
     // #endregion Unit verifications
 

@@ -21,7 +21,7 @@ class CustomWorld {
 
     async cleanup() {
         await this.page.close();
-        await this.guardian.revert();
+        // await this.guardian.revert();
     }
 }
 

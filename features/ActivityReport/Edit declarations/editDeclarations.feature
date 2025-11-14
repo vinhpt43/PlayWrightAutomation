@@ -1,8 +1,8 @@
 @EditDeclarations
-Feature: Edit declarations
+Feature: 02_Edit declarations
 
-@Regression @UI @debug
-Scenario: 08_Verify user can edit maximum 1MD/8MH in a day
+@Scenario0201
+Scenario: 0201_Verify user can edit maximum 1MD/8MH in a day
 Given User has declared efforts
 When User is on Activity Report page
 And User expands the projects list
@@ -46,3 +46,18 @@ And Save button is disabled
 When User modifies the effort to '8.001'
 Then Input has no tooltip
 And Save button is enabled
+
+@Scenario0202
+Scenario: 0202_Verify declaration status is displayed correctly
+Given User has declared efforts
+When User is on Activity Report page
+And User hovers on declared effort number '1'
+Then Status tooltip reads "Draft"
+When User hovers on declared effort number '2'
+Then Status tooltip reads "Pending for validation"
+When User hovers on declared effort number '3'
+Then Status tooltip reads "Rejected"
+When User hovers on declared effort number '4'
+Then Status tooltip reads "Valid"
+When User hovers on rejected declarations icon
+Then Tooltip reads "2 rejected"

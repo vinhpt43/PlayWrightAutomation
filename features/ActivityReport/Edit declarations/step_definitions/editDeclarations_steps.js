@@ -30,3 +30,19 @@ When('User modifies the effort to {string}', async function (value) {
 When('User cancels edition', async function () {
     await this.activityReportPage.clickOnCancel();
 });
+
+When('User hovers on declared effort number {string}', async function (index) {
+    await this.activityReportPage.hoverOnDeclaredEffortByIndexOnMonthlyView(index);
+});
+
+Then('Status tooltip reads {string}', async function (status) {
+    await this.activityReportPage.verifyTooltipStatusIsCorrect(status);
+})
+
+When('User hovers on rejected declarations icon', async function () {
+    await this.activityReportPage.hoverOnHasRejectedDeclarationsIcon();
+});
+
+Then('Tooltip reads {string}', async function (message) {
+    await this.activityReportPage.verifyGenericTooltipMessageIsCorrect(message);
+})

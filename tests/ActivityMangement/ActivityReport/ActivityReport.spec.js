@@ -9,6 +9,9 @@ test.only('route API response', async ({ guardian, activityReportPage, userRoles
 	await activityReportPage.goToActivityReport();
 	await activityReportPage.openAddOtherActivitiesForm();
 	await activityReportPage.verifyAddOtherActivitiesFormAppears();
+	await activityReportPage.addEffortForAnActivity('presales', '1');
+	await activityReportPage.addEffortForAnActivity('marketing', '1');
+	await activityReportPage.clickOnAddButtonInOtherActivitiesForm();
 	// await activityReportPage.verifyTotalPerDayIsCorrect(0.5, 4);
 	// await activityReportPage.inputDeclarationByIndexOnMonthlyView(1,'0.001');
 	// await activityReportPage.hoverOnDeclaredEffortByIndexOnMonthlyView(2);

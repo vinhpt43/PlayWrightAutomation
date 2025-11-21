@@ -9,7 +9,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-14",
+          "dateOfTracking": "2025-11-21",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -19,7 +19,7 @@
             {
               "timeTrackingId": 1,
               "type": "Normal",
-              "timeTracked": 1,
+              "timeTracked": 0.9992,
               "status": "Draft",
               "source": "ActivityManagement",
               "unit": "ManHour"
@@ -37,7 +37,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-14",
+          "dateOfTracking": "2025-11-21",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -65,7 +65,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-14",
+          "dateOfTracking": "2025-11-21",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -93,7 +93,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-14",
+          "dateOfTracking": "2025-11-21",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -121,7 +121,7 @@
       "nonBillableEvent": null,
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-14",
+          "dateOfTracking": "2025-11-21",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -131,7 +131,7 @@
             {
               "timeTrackingId": 1,
               "type": "Normal",
-              "timeTracked": 0.5,
+              "timeTracked": 0.4999,
               "status": "PendingForValidation",
               "source": "ActivityManagement",
               "unit": "ManDay"
@@ -149,7 +149,7 @@
       },
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-14",
+          "dateOfTracking": "2025-11-21",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -177,7 +177,7 @@
       },
       "timeTrackings": [
         {
-          "dateOfTracking": "2025-11-14",
+          "dateOfTracking": "2025-11-21",
           "isInProjectPeriod": true,
           "isPortalia": false,
           "isDeclareOnBehalf": false,
@@ -199,7 +199,7 @@
   ],
   "summaries": [
     {
-      "dateOfTracking": "2025-11-14",
+      "dateOfTracking": "2025-11-21",
       "totalEffortInManDay": 1,
       "totalEffortInManHour": 8,
       "remainingEffortInManDay": 0,

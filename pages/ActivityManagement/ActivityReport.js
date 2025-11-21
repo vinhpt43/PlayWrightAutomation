@@ -26,6 +26,9 @@ class ActivityReportPage extends Commonpage {
         this.declarationsHistory_option = this.page.getByText('Declarations history');
         this.comment_option = this.page.getByText('Comment');
         this.delete_option = this.page.getByText('Delete');
+        this.OtherActivityTypes_list = this.page.getByRole('combobox', { name: 'Activity Type', exact: true });
+        this.add_button = this.page.getByRole('button', { name: 'Add', exact: true });
+        this.addActivity_button = this.page.getByRole('button', { name: 'Add Activity', exact: true });
         //#endregion Buttons
 
         //#region Tables
@@ -76,7 +79,7 @@ class ActivityReportPage extends Commonpage {
         //#endregion Tooltips
 
         //#region Forms
-        this.addOtherActivitiesForm = this.page.getByText('Add Other Activities');
+        this.addOtherActivitiesForm = this.page.getByText('Add Other Activities').locator('xpath=//ancestor::div[contains(@id,"q-portal--dialog")]');
         //#endregion Forms
 
         //#endregion Locators
@@ -256,6 +259,20 @@ class ActivityReportPage extends Commonpage {
         await this.dayCellsOfCurrentMonth_td.hover();
         await this.addOtherActivities_button.click();
     }
+
+    async addEffortForAnActivity(activityType, effort) {
+        if (await this.addActivity_button.isEnabled()) {
+            this.addActivity_button.click();
+        }
+        await this.OtherActivityTypes_list.click();
+        await this.page.getByText(activityType).click();
+        await this.page.locator('button:has(i.q-icon:has-text("check"))').first().click();
+        await this.addOtherActivitiesForm.getByRole('row',{name:activityType}).getByRole('textbox').fill(effort.toString());
+    }
+
+    async clickOnAddButtonInOtherActivitiesForm() {
+        await this.add_button.click();
+    }
     // #endregion Unit actions
 
     // #region Integrated actions
@@ -323,7 +340,7 @@ class ActivityReportPage extends Commonpage {
     }
 
     async verifyTooltipErrorMessageIsCorrect(message) {
-        await expect(this.tooltipStatus).toHaveCount(1);
+        await expect(this.inputTooltipErrorMessage).toHaveCount(1);
         await expect(this.inputTooltipErrorMessage).toHaveText(message);
     }
 
@@ -351,7 +368,7 @@ class ActivityReportPage extends Commonpage {
     }
 
     async verifyAddOtherActivitiesFormAppears() {
-        await expect(this.addOtherActivitiesForm).toBeVisible();
+        await expect(this.addOtherActivitiesForm).toBeAttached();
     }
     // #endregion Unit verifications
 

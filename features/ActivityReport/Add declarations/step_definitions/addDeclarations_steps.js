@@ -67,3 +67,7 @@ When('User clicks on Add Other Activities button', async function () {
 Then('Add Other Activities form appears', async function () {
     await this.activityReportPage.verifyAddOtherActivitiesFormAppears();
 })
+
+When('User adds {string} MH for {string}', function (effort, activityType) {
+    
+});

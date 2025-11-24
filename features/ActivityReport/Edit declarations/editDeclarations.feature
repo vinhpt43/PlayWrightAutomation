@@ -22,6 +22,9 @@ And Save button is disabled
 When User modifies the effort to '0'
 Then Input has tooltip message 'Please enter a number higher than 0'
 And Save button is disabled
+When User modifies the effort to '0.0.0'
+Then Input has tooltip message 'Only one decimal separator is allowed'
+And Save button is disabled
 When User modifies the effort to '0.9991'
 Then Input has no tooltip
 And Save button is enabled

@@ -32,6 +32,9 @@ And Submit buttons are disabled
 When User inputs '-1' in project number '1'
 Then Input has tooltip message 'Please enter a number higher than 0'
 And Submit buttons are disabled
+When User inputs '0.0.0' in project number '1'
+Then Input has tooltip message 'Only one decimal separator is allowed'
+And Submit buttons are disabled
 When User inputs '0.0001' in project number '1'
 Then Input has no tooltip
 And Submit buttons are enabled

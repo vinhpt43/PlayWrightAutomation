@@ -4,9 +4,17 @@ const fs = require('fs');
 const path = require('path');
 
 async function loginARP() {
+    //Check if a storageState has already existed
+    const hasStorage = fs.existsSync('session.json');
+
     //Init browser in head mode to input password manually later
     const browser = await chromium.launch({ headless: false });
-    const context = await browser.newContext();
+    let context;
+    if (hasStorage) {
+        context = await browser.newContext({ storageState: 'session.json' });
+    } else {
+        context = await browser.newContext();
+    }
     const page = await context.newPage();
 
     //Declare web objects
@@ -18,6 +26,7 @@ async function loginARP() {
     const rememberLogin_checkbox = page.getByText('Remember this device for 30 days');
     const showAgain_checkbox = page.getByText("Don't show this again");
     const yes_btn = page.getByRole('button', { name: 'Yes' });
+    const guardianHeader = page.getByText('TEST ENVIRONMENT', { exact: true });
 
     const targetUrl = 'https://login.microsoftonline.com/ce57ebe3-a63d-4708-b5cf-c274b48bd26c/oauth2/v2.0/token';//'https://auth.mantu.com/oauth/token';
     page.on('response', async response => {
@@ -25,49 +34,51 @@ async function loginARP() {
         if (response.url() === targetUrl) {
             // Get the response body
             const responseBody = await response.text();
-            //Store the access token to access_token.json
+            //Store the access token to access_token.json to use for impersonation with Guardian
             fs.writeFileSync(path.join(__dirname, '../data/setupData/access_token.json'), JSON.stringify({ access_token: JSON.parse(responseBody).access_token }));
         }
     });
 
     //Go to any ARP app to open login portal
-    await page.goto("https://guardian.o2f-it.com/INTE/index");
-    //Fill in username in Microsoft interface
-    await microsoft_username_txtbox.fill(LOGIN.USERNAME);
-    await next_btn.click();
-    //Fill in username and password and proceed to log in
-    // await username_txtbox.fill(LOGIN.USERNAME);
-    // await continue_btn.click();
-    // await rememberLogin_checkbox.click();
-    // await continue_btn.click();
-    await showAgain_checkbox.click();
-    await yes_btn.click();
+    await page.goto("https://guardian.o2f-it.com/INTE/index", { waitUntil: 'networkidle' });
 
-    //Wait for token api to get access token after logging in
-    await page.waitForResponse(async response => {
-        if (!response.url().startsWith(targetUrl) || response.status() !== 200) {
-            return false;
-        }
+    const isLoggedIn = await guardianHeader.isVisible().catch(() => false);
+    console.log('isLoggedIn:' + isLoggedIn);
+    if (!isLoggedIn) {
+        //Fill in username in Microsoft interface
+        await microsoft_username_txtbox.fill(LOGIN.USERNAME);
+        await next_btn.click();
+        //Fill in username and password and proceed to log in
+        // await username_txtbox.fill(LOGIN.USERNAME);
+        // await continue_btn.click();
+        // await rememberLogin_checkbox.click();
+        // await continue_btn.click();
+        await showAgain_checkbox.click();
+        await yes_btn.click();
 
-        const bodyText = await response.text();
+        //Wait for token api to get access token after logging in
+        await page.waitForResponse(async response => {
+            if (!response.url().startsWith(targetUrl) || response.status() !== 200) {
+                return false;
+            }
 
-        let body;
-        try {
-            body = JSON.parse(bodyText);
-        } catch (e) {
-            console.log('Failed to parse JSON:', e, 'bodyText:', bodyText);
-            return false;
-        }
+            const bodyText = await response.text();
 
-        // console.log('body:', body);
+            let body;
+            try {
+                body = JSON.parse(bodyText);
+            } catch (e) {
+                console.log('Failed to parse JSON:', e, 'bodyText:', bodyText);
+                return false;
+            }
 
-        // Now body is an object; adjust this to your real structure
-        return body.scope?.includes('api://guardianapi/Contributor');
-    });
+            //filter only the token request that Guardian can use
+            return body.scope?.includes('api://guardianapi/Contributor');
+        });
 
-    //Save session context for all later tests
-    await page.context().storageState({ path: 'session.json' });
-
+        //Save session context for all later tests
+        await page.context().storageState({ path: 'session.json' });
+    }
     //Close
     await page.close();
     await context.close();

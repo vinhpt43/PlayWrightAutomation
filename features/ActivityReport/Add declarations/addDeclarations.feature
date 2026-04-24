@@ -152,5 +152,7 @@ Given User is consultant
 And User has one MD project with ICO
 When User is on Activity Report page
 And User clicks on Add Other Activities button
-# Then Add Other Activities form appears
-And User adds '1' MH for 'Presales'
+Then Add Other Activities form appears
+And Add button is disabled in Other Activities modal
+And User adds '9' MH for 'Presales'
+Then Add button is enabled in Other Activities modal

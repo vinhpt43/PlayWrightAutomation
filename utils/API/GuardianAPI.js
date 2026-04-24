@@ -30,10 +30,8 @@ class GuardianAPI {
         });
 
         const urlWithParams = `${this.baseURL + "/secured-users"}?${queryParams.toString()}`;
-        console.log(urlWithParams);
+
         const response = await (await this.apiContext.get(urlWithParams, { headers: this.headers })).text();
-        
-        console.log('response: ' + response);
 
         await this.apiContext.post(this.baseURL + "/identities/assign-to-user/" + JSON.parse(response).items[0].securedUserId + "?reason=auto", { headers: this.headers });
     }

@@ -370,6 +370,16 @@ class ActivityReportPage extends Commonpage {
     async verifyAddOtherActivitiesFormAppears() {
         await expect(this.addOtherActivitiesForm).toBeAttached();
     }
+
+    async verifyAddButtonOnOtherActivitiesFormIsEnabled()
+    {
+        await expect(this.add_button).toBeEnabled();
+    }
+
+    async verifyAddButtonOnOtherActivitiesFormIsDisabled()
+    {
+        await expect(this.add_button).toBeDisabled();
+    }
     // #endregion Unit verifications
 
     // #region Integrated verifications

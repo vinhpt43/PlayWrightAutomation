@@ -68,6 +68,14 @@ Then('Add Other Activities form appears', async function () {
     await this.activityReportPage.verifyAddOtherActivitiesFormAppears();
 })
 
-When('User adds {string} MH for {string}', function (effort, activityType) {
-    
+When('User adds {string} MH for {string}', async function (effort, activityType) {
+    await this.activityReportPage.addEffortForAnActivity(activityType, effort);
+});
+
+Then('Add button is enabled in Other Activities modal', async function () {
+    await this.activityReportPage.verifyAddButtonOnOtherActivitiesFormIsEnabled();
+});
+
+Then('Add button is disabled in Other Activities modal', async function () {
+    await this.activityReportPage.verifyAddButtonOnOtherActivitiesFormIsDisabled();
 });

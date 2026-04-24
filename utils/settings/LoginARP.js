@@ -31,19 +31,39 @@ async function loginARP() {
     });
 
     //Go to any ARP app to open login portal
-    await page.goto("https://am.intearp.mantu.com");
+    await page.goto("https://guardian.o2f-it.com/INTE/index");
     //Fill in username in Microsoft interface
     await microsoft_username_txtbox.fill(LOGIN.USERNAME);
     await next_btn.click();
     //Fill in username and password and proceed to log in
-    await username_txtbox.fill(LOGIN.USERNAME);
-    await continue_btn.click();
-    await rememberLogin_checkbox.click();
-    await continue_btn.click();
+    // await username_txtbox.fill(LOGIN.USERNAME);
+    // await continue_btn.click();
+    // await rememberLogin_checkbox.click();
+    // await continue_btn.click();
     await showAgain_checkbox.click();
     await yes_btn.click();
+
     //Wait for token api to get access token after logging in
-    await page.waitForResponse(response => response.url() === targetUrl && response.status() === 200);
+    await page.waitForResponse(async response => {
+        if (!response.url().startsWith(targetUrl) || response.status() !== 200) {
+            return false;
+        }
+
+        const bodyText = await response.text();
+
+        let body;
+        try {
+            body = JSON.parse(bodyText);
+        } catch (e) {
+            console.log('Failed to parse JSON:', e, 'bodyText:', bodyText);
+            return false;
+        }
+
+        // console.log('body:', body);
+
+        // Now body is an object; adjust this to your real structure
+        return body.scope?.includes('api://guardianapi/Contributor');
+    });
 
     //Save session context for all later tests
     await page.context().storageState({ path: 'session.json' });

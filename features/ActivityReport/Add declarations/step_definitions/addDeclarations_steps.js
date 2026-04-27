@@ -72,10 +72,18 @@ When('User adds {string} MH for {string}', async function (effort, activityType)
     await this.activityReportPage.addEffortForAnActivity(activityType, effort);
 });
 
+When('User changes effort to {string} MH for {string}', async function (effort, activityType) {
+    await this.activityReportPage.changeEffortForAnActivity(activityType, effort);
+});
+
 Then('Add button is enabled in Other Activities modal', async function () {
     await this.activityReportPage.verifyAddButtonOnOtherActivitiesFormIsEnabled();
 });
 
 Then('Add button is disabled in Other Activities modal', async function () {
     await this.activityReportPage.verifyAddButtonOnOtherActivitiesFormIsDisabled();
+});
+
+Then('Type {string} is not found in Activity Type anymore', async function (activityType) {
+    await this.activityReportPage.verifySelectedActivityIsExcludedFromTheList(activityType);
 });

@@ -154,5 +154,28 @@ When User is on Activity Report page
 And User clicks on Add Other Activities button
 Then Add Other Activities form appears
 And Add button is disabled in Other Activities modal
-And User adds '9' MH for 'Presales'
+When User adds '0' MH for 'Presales'
+Then Input has tooltip message 'Please enter a number higher than 0'
+And Add button is disabled in Other Activities modal
+When User changes effort to '1.00001' MH for 'Presales'
+Then Input has tooltip message 'You cannot input more than 4 digits after the comma'
+And Add button is disabled in Other Activities modal
+When User changes effort to 'a' MH for 'Presales'
+Then Input has tooltip message 'Please enter a number as an effort'
+And Add button is disabled in Other Activities modal
+When User changes effort to '-1' MH for 'Presales'
+Then Input has tooltip message 'Please enter a number higher than 0'
+And Add button is disabled in Other Activities modal
+When User changes effort to '0.0.0' MH for 'Presales'
+Then Input has tooltip message 'Only one decimal separator is allowed'
+And Add button is disabled in Other Activities modal
+When User changes effort to '9' MH for 'Presales'
 Then Add button is enabled in Other Activities modal
+When User changes effort to '9.0001' MH for 'Presales'
+Then Add button is enabled in Other Activities modal
+When User changes effort to '9,5' MH for 'Presales'
+Then Add button is enabled in Other Activities modal
+And Type 'Presales' is not found in Activity Type anymore
+When User adds '0' MH for 'Business development'
+Then Input has tooltip message 'Please enter a number higher than 0'
+And Add button is disabled in Other Activities modal

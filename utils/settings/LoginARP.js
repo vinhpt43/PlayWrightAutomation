@@ -7,26 +7,57 @@ async function loginARP() {
     //Check if a storageState has already existed
     const hasStorage = fs.existsSync('session.json');
 
-    //Init browser in head mode to input password manually later
-    const browser = await chromium.launch({ headless: false });
+    //Init browser
+    let browser;
     let context;
-    if (hasStorage) {
-        context = await browser.newContext({ storageState: 'session.json' });
-    } else {
-        context = await browser.newContext();
-    }
-    const page = await context.newPage();
+    let page;
+    let isLoggedIn;
 
+    if (hasStorage) {
+        browser = await chromium.launch({ headless: true });
+        context = await browser.newContext({ storageState: 'session.json' });
+        page = await context.newPage();
+        console.log('Checking authentication session validity ...')
+        isLoggedIn = await checkIsLoggedIn(page);
+        if(isLoggedIn){
+            console.log("Tests starting ...");
+        }
+        else{
+            console.log("Session expired!");
+        }
+    }
+    if (!hasStorage || !isLoggedIn) {
+        browser = await chromium.launch({ headless: false });
+        context = await browser.newContext();
+        page = await context.newPage();
+        console.log("Performing log in action");
+        await inputCredentials(page);
+    }
+
+    //Close
+    await page.close();
+    await context.close();
+    await browser.close();
+}
+
+async function checkIsLoggedIn(page) {
+    // const page = await context.newPage();
+    const guardianHeader = page.getByText('TEST ENVIRONMENT', { exact: true });
+    //Go to any ARP app to open login portal
+    await page.goto("https://guardian.o2f-it.com/INTE/index", { waitUntil: 'networkidle' });
+    return await guardianHeader.isVisible().catch(() => false);
+}
+
+async function inputCredentials(page) {
     //Declare web objects
     const microsoft_username_txtbox = page.getByPlaceholder('Email, phone, or Skype');
     const next_btn = page.getByRole('button', { name: 'Next' });
-    const username_txtbox = page.getByRole('textbox', { name: 'username' });
-    const continue_btn = page.getByRole('button', { name: 'Continue' });
-    const password_txtbox = page.getByRole('textbox', { name: 'password' });
-    const rememberLogin_checkbox = page.getByText('Remember this device for 30 days');
+    // const username_txtbox = page.getByRole('textbox', { name: 'username' });
+    // const continue_btn = page.getByRole('button', { name: 'Continue' });
+    // const password_txtbox = page.getByRole('textbox', { name: 'password' });
+    // const rememberLogin_checkbox = page.getByText('Remember this device for 30 days');
     const showAgain_checkbox = page.getByText("Don't show this again");
     const yes_btn = page.getByRole('button', { name: 'Yes' });
-    const guardianHeader = page.getByText('TEST ENVIRONMENT', { exact: true });
 
     const targetUrl = 'https://login.microsoftonline.com/ce57ebe3-a63d-4708-b5cf-c274b48bd26c/oauth2/v2.0/token';//'https://auth.mantu.com/oauth/token';
     page.on('response', async response => {
@@ -40,49 +71,42 @@ async function loginARP() {
     });
 
     //Go to any ARP app to open login portal
-    await page.goto("https://guardian.o2f-it.com/INTE/index", { waitUntil: 'networkidle' });
+    await page.goto("https://guardian.o2f-it.com/INTE/index");
 
-    const isLoggedIn = await guardianHeader.isVisible().catch(() => false);
-    console.log('isLoggedIn:' + isLoggedIn);
-    if (!isLoggedIn) {
-        //Fill in username in Microsoft interface
-        await microsoft_username_txtbox.fill(LOGIN.USERNAME);
-        await next_btn.click();
-        //Fill in username and password and proceed to log in
-        // await username_txtbox.fill(LOGIN.USERNAME);
-        // await continue_btn.click();
-        // await rememberLogin_checkbox.click();
-        // await continue_btn.click();
-        await showAgain_checkbox.click();
-        await yes_btn.click();
+    //Fill in username in Microsoft interface
+    await microsoft_username_txtbox.fill(LOGIN.USERNAME);
+    await next_btn.click();
+    //Fill in username and password and proceed to log in
+    // await username_txtbox.fill(LOGIN.USERNAME);
+    // await continue_btn.click();
+    // await rememberLogin_checkbox.click();
+    // await continue_btn.click();
+    await showAgain_checkbox.click();
+    await yes_btn.click();
 
-        //Wait for token api to get access token after logging in
-        await page.waitForResponse(async response => {
-            if (!response.url().startsWith(targetUrl) || response.status() !== 200) {
-                return false;
-            }
+    //Wait for token api to get access token after logging in
+    await page.waitForResponse(async response => {
+        if (!response.url().startsWith(targetUrl) || response.status() !== 200) {
+            return false;
+        }
 
-            const bodyText = await response.text();
+        const bodyText = await response.text();
 
-            let body;
-            try {
-                body = JSON.parse(bodyText);
-            } catch (e) {
-                console.log('Failed to parse JSON:', e, 'bodyText:', bodyText);
-                return false;
-            }
+        let body;
+        try {
+            body = JSON.parse(bodyText);
+        } catch (e) {
+            console.log('Failed to parse JSON:', e, 'bodyText:', bodyText);
+            return false;
+        }
 
-            //filter only the token request that Guardian can use
-            return body.scope?.includes('api://guardianapi/Contributor');
-        });
+        //filter only the token request that Guardian can use
+        return body.scope?.includes('api://guardianapi/Contributor');
+    });
 
-        //Save session context for all later tests
-        await page.context().storageState({ path: 'session.json' });
-    }
-    //Close
-    await page.close();
-    await context.close();
-    await browser.close();
+    //Save session context for all later tests
+    await page.context().storageState({ path: 'session.json' });
+
 }
 module.exports = { loginARP };
 // module.exports =  loginARP ;

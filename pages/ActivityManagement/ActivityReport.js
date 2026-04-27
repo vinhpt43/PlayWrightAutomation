@@ -26,7 +26,8 @@ class ActivityReportPage extends Commonpage {
         this.declarationsHistory_option = this.page.getByText('Declarations history');
         this.comment_option = this.page.getByText('Comment');
         this.delete_option = this.page.getByText('Delete');
-        this.OtherActivityTypes_list = this.page.getByRole('combobox', { name: 'Activity Type', exact: true });
+        this.OtherActivityTypes_combobox = this.page.getByRole('combobox', { name: 'Activity Type', exact: true });
+        this.OtherActivityTypes_list = this.page.getByRole('listbox');
         this.add_button = this.page.getByRole('button', { name: 'Add', exact: true });
         this.addActivity_button = this.page.getByRole('button', { name: 'Add Activity', exact: true });
         //#endregion Buttons
@@ -264,10 +265,14 @@ class ActivityReportPage extends Commonpage {
         if (await this.addActivity_button.isEnabled()) {
             this.addActivity_button.click();
         }
-        await this.OtherActivityTypes_list.click();
-        await this.page.getByText(activityType).click();
-        await this.page.locator('button:has(i.q-icon:has-text("check"))').first().click();
-        await this.addOtherActivitiesForm.getByRole('row',{name:activityType}).getByRole('textbox').fill(effort.toString());
+        await this.OtherActivityTypes_combobox.click();
+        await this.OtherActivityTypes_list.getByText(activityType).click();
+        await this.addOtherActivitiesForm.locator('button:has(i.q-icon:has-text("check"))').first().click();
+        await this.addOtherActivitiesForm.getByRole('row', { name: activityType }).getByRole('textbox').fill(effort.toString());
+    }
+
+    async changeEffortForAnActivity(activityType, effort) {
+        await this.addOtherActivitiesForm.getByRole('row', { name: activityType }).getByRole('textbox').fill(effort.toString());
     }
 
     async clickOnAddButtonInOtherActivitiesForm() {
@@ -371,14 +376,23 @@ class ActivityReportPage extends Commonpage {
         await expect(this.addOtherActivitiesForm).toBeAttached();
     }
 
-    async verifyAddButtonOnOtherActivitiesFormIsEnabled()
-    {
+    async verifyAddButtonOnOtherActivitiesFormIsEnabled() {
         await expect(this.add_button).toBeEnabled();
     }
 
-    async verifyAddButtonOnOtherActivitiesFormIsDisabled()
-    {
+    async verifyAddButtonOnOtherActivitiesFormIsDisabled() {
         await expect(this.add_button).toBeDisabled();
+    }
+
+    async verifySelectedActivityIsExcludedFromTheList(activityType) {
+        if (await this.addActivity_button.isEnabled()) {
+            this.addActivity_button.click();
+        }
+        await this.OtherActivityTypes_combobox.click();
+        await this.OtherActivityTypes_list.getByText(activityType).click();
+        // expect (count).toBe(0);
+        // await this.page.waitForSelector(this.OtherActivityTypes_list.getByText(activityType),{state: 'detached'});
+        await this.OtherActivityTypes_combobox.click();
     }
     // #endregion Unit verifications
 

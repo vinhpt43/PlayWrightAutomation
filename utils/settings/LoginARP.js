@@ -12,6 +12,9 @@ async function loginARP() {
     let context;
     let page;
     let isLoggedIn;
+    let tokenExpired;
+
+    tokenExpired = await checkTokenExpired();
 
     if (hasStorage) {
         browser = await chromium.launch({ headless: true });
@@ -19,14 +22,14 @@ async function loginARP() {
         page = await context.newPage();
         console.log('Checking authentication session validity ...')
         isLoggedIn = await checkIsLoggedIn(page);
-        if(isLoggedIn){
+        if (isLoggedIn && !tokenExpired) {
             console.log("Tests starting ...");
         }
-        else{
+        else {
             console.log("Session expired!");
         }
     }
-    if (!hasStorage || !isLoggedIn) {
+    if (!hasStorage || !isLoggedIn || tokenExpired) {
         browser = await chromium.launch({ headless: false });
         context = await browser.newContext();
         page = await context.newPage();
@@ -48,6 +51,11 @@ async function checkIsLoggedIn(page) {
     return await guardianHeader.isVisible().catch(() => false);
 }
 
+async function checkTokenExpired() {
+    const tokenData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/setupData/access_token.json')));
+    return Date.now() - 30000 >= tokenData.expiry;
+}
+
 async function inputCredentials(page) {
     //Declare web objects
     const microsoft_username_txtbox = page.getByPlaceholder('Email, phone, or Skype');
@@ -66,7 +74,7 @@ async function inputCredentials(page) {
             // Get the response body
             const responseBody = await response.text();
             //Store the access token to access_token.json to use for impersonation with Guardian
-            fs.writeFileSync(path.join(__dirname, '../data/setupData/access_token.json'), JSON.stringify({ access_token: JSON.parse(responseBody).access_token }));
+            fs.writeFileSync(path.join(__dirname, '../data/setupData/access_token.json'), JSON.stringify({ access_token: JSON.parse(responseBody).access_token, expiry: Date.now() + JSON.parse(responseBody).expires_in * 1000 }));
         }
     });
 

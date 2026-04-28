@@ -390,6 +390,9 @@ class ActivityReportPage extends Commonpage {
         }
         await this.OtherActivityTypes_combobox.click();
         await this.OtherActivityTypes_list.getByText(activityType).click();
+
+        //in progress: to verify element not exists
+
         // expect (count).toBe(0);
         // await this.page.waitForSelector(this.OtherActivityTypes_list.getByText(activityType),{state: 'detached'});
         await this.OtherActivityTypes_combobox.click();

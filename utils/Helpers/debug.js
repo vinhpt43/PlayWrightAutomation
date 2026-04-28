@@ -9,10 +9,19 @@ const { DateHelper } = require('./DateHelper');
 // console.log(DateHelper.getFirstDayOfCurrentMonth());
 // console.log(DateHelper.getLastDayOfCurrentMonth());
 
-// const currentTimestamp = Math.floor(Date.now() / 1000);
-// console.log(currentTimestamp + 86400);
+// const currentTimestamp = Date();
+// const newTimestamp = currentTimestamp + 3600*1000;
+// console.log(currentTimestamp.toString());
+// console.log(newTimestamp.toString());
+// console.log(new Date(currentTimestamp));
+// console.log(new Date(newTimestamp));
 
-// const timestamp = 1751985753;
-// const date = new Date(timestamp * 1000);
-// console.log(date.toString());
-console.log(DateHelper.getToday());
+const timestamp = 1777395934919;
+const date = new Date(timestamp);
+const now = Date.now();
+// const date = new Date();
+// const time = new Date.now();
+console.log(date.toLocaleString());
+console.log(now);
+// console.log(time.toString());
+// console.log(DateHelper.getToday());

@@ -6,6 +6,7 @@ const { DateHelper } = require('../../utils/Helpers/DateHelper');
 const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../../utils/data/setupData/constants');
 const ignoreAppAnnouncement = require('../../utils/data/setupData/ignoreAppAnnouncement.json');
 const ignoreExpressYourself = require('../../utils/data/setupData/ignoreExpressYourself.json');
+const { convertProcessSignalToExitCode } = require('util');
 
 class ActivityReportPage extends Commonpage {
     constructor(page) {
@@ -27,7 +28,6 @@ class ActivityReportPage extends Commonpage {
         this.comment_option = this.page.getByText('Comment');
         this.delete_option = this.page.getByText('Delete');
         this.OtherActivityTypes_combobox = this.page.getByRole('combobox', { name: 'Activity Type', exact: true });
-        this.OtherActivityTypes_list = this.page.getByRole('listbox');
         this.add_button = this.page.getByRole('button', { name: 'Add', exact: true });
         this.addActivity_button = this.page.getByRole('button', { name: 'Add Activity', exact: true });
         //#endregion Buttons
@@ -81,6 +81,8 @@ class ActivityReportPage extends Commonpage {
 
         //#region Forms
         this.addOtherActivitiesForm = this.page.getByText('Add Other Activities').locator('xpath=//ancestor::div[contains(@id,"q-portal--dialog")]');
+        this.anyForm = this.page.locator('div[id^="q-portal--dialog"]');
+        this.anyMenu = this.page.locator('div[id^="q-portal--menu"] > .q-menu')
         //#endregion Forms
 
         //#endregion Locators
@@ -266,7 +268,7 @@ class ActivityReportPage extends Commonpage {
             this.addActivity_button.click();
         }
         await this.OtherActivityTypes_combobox.click();
-        await this.OtherActivityTypes_list.getByText(activityType).click();
+        await this.anyMenu.getByText(activityType).click();
         await this.addOtherActivitiesForm.locator('button:has(i.q-icon:has-text("check"))').first().click();
         await this.addOtherActivitiesForm.getByRole('row', { name: activityType }).getByRole('textbox').fill(effort.toString());
     }
@@ -386,15 +388,16 @@ class ActivityReportPage extends Commonpage {
 
     async verifySelectedActivityIsExcludedFromTheList(activityType) {
         if (await this.addActivity_button.isEnabled()) {
-            this.addActivity_button.click();
+            await this.addActivity_button.click();
         }
+
         await this.OtherActivityTypes_combobox.click();
-        await this.OtherActivityTypes_list.getByText(activityType).click();
 
-        //in progress: to verify element not exists
+        // Wait for menu to be visible/ready
+        await expect(this.anyMenu).toBeVisible();
+        // Assert the item is not present
+        await expect(this.anyMenu.getByText(activityType)).toHaveCount(0);
 
-        // expect (count).toBe(0);
-        // await this.page.waitForSelector(this.OtherActivityTypes_list.getByText(activityType),{state: 'detached'});
         await this.OtherActivityTypes_combobox.click();
     }
     // #endregion Unit verifications

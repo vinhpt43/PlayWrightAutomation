@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const testData = require('../../../../utils/data/testData');
+const testData = require('../../../utils/data/testData');
 
 Then('User sees common view of managee', async function () {
     await this.activityReportPage.verifyCommonViewIsCorrect();
@@ -64,8 +64,8 @@ When('User clicks on Add Other Activities button', async function () {
     await this.activityReportPage.openAddOtherActivitiesForm();
 })
 
-Then('Add Other Activities form appears', async function () {
-    await this.activityReportPage.verifyAddOtherActivitiesFormAppears();
+Then('Form {string} appears', async function (formTitle) {
+    await this.activityReportPage.verifyFormAppears(formTitle);
 })
 
 When('User adds {string} MH for {string}', async function (effort, activityType) {

@@ -1,0 +1,43 @@
+{
+  "projects": [
+    {
+      "project": {
+        "projectId": 1,
+        "title": "P1",
+        "unit": "ManDay"
+      },
+      "nonBillableEvent": null,
+      "timeTrackings": [
+        {
+          "dateOfTracking": "2026-05-06",
+          "isInProjectPeriod": true,
+          "isPortalia": false,
+          "isDeclareOnBehalf": false,
+          "isWithinEntryAndExitDate": true,
+          "isCanDeclaration": false,
+          "timeTrackingDetails": []
+        }
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "dateOfTracking": "2026-05-06",
+      "totalEffortInManDay": 1,
+      "totalEffortInManHour": 8,
+      "remainingEffortInManDay": 0,
+      "remainingEffortInManHour": 0
+    }
+  ],
+  "absences": [
+    {
+      "dateOfTracking": "2026-05-06",
+      "type": "Absence",
+      "status": "Valid",
+      "source": "Timesheet",
+      "isWeekend": false,
+      "isPHO": false,
+      "category": "PH"
+    }
+  ]
+}

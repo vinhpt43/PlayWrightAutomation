@@ -5,6 +5,10 @@ const twoMHprojects = require('./twoMHprojects.json');
 const oneMDoneMHprojects = require('./oneMDoneMHprojects.json');
 const oneMDprojectWithICO = require('./oneMDprojectWithICO.json');
 const editDeclarations = require('./editDeclarations.json');
+const PHfullDay = require('./PHfullDay.json');
+const PHhalfDay = require('./PHhalfDay.json');
+const PHO = require('./PHO.json');
+const Weekend = require('./Weekend.json');
 
 module.exports = {
     oneMDproject,
@@ -13,5 +17,9 @@ module.exports = {
     twoMHprojects,
     oneMDoneMHprojects,
     oneMDprojectWithICO,
-    editDeclarations
+    editDeclarations,
+    PHfullDay,
+    PHhalfDay,
+    PHO,
+    Weekend
 };

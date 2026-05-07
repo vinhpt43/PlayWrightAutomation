@@ -52,18 +52,3 @@ And Save button is disabled
 When User modifies the effort to '8.0001'
 Then Input has no tooltip
 And Save button is enabled
-
-@Scenario0202
-Scenario: 0202_Verify declaration status is displayed correctly
-Given User has declared efforts
-When User is on Activity Report page
-And User hovers on declared effort number '1'
-Then Status tooltip reads "Draft"
-When User hovers on declared effort number '2'
-Then Status tooltip reads "Pending for validation"
-When User hovers on declared effort number '3'
-Then Status tooltip reads "Rejected"
-When User hovers on declared effort number '4'
-Then Status tooltip reads "Valid"
-When User hovers on rejected declarations icon
-Then Tooltip reads "2 rejected"

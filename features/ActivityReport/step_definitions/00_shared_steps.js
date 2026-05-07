@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const testData = require('../../../../utils/data/testData');
+const testData = require('../../../utils/data/testData');
 
 Given('User is consultant', async function () {
     await this.guardian.impersonate(this.userRoles.CONSULTANT);

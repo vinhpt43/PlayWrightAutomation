@@ -6,7 +6,7 @@ const { DateHelper } = require('../../utils/Helpers/DateHelper');
 const { CONFIG, ACTIVITYMANAGEMENTWRAPPER } = require('../../utils/data/setupData/constants');
 const ignoreAppAnnouncement = require('../../utils/data/setupData/ignoreAppAnnouncement.json');
 const ignoreExpressYourself = require('../../utils/data/setupData/ignoreExpressYourself.json');
-const { convertProcessSignalToExitCode } = require('util');
+const { updateDateOfTrackingOfTestData } = require('../../utils/settings/AdaptTestData');
 
 class ActivityReportPage extends Commonpage {
     constructor(page) {
@@ -53,7 +53,7 @@ class ActivityReportPage extends Commonpage {
         this.projectsOfDayCellsOfCurrentMonth_xpath = '/div[not(@class="text-bold")]'
         this.projectsOfDayCellsOfCurrentMonth = this.projectsGroupOfDayCellsOfCurrentMonth.locator('xpath=' + this.projectsOfDayCellsOfCurrentMonth_xpath);
 
-        this.dayCellsWithOFF = this.projectsGroupOfDayCellsOfCurrentMonth.locator('xpath=/div[@class="text-bold"]');
+        this.dayCellsWithLabel = this.dayCellsOfCurrentMonth_td.locator('xpath=//div[@class="ellipsis"]');
 
         this.declaredEffort_xpath = '/div/div[2]//span';
         this.declaredEffort = this.dayCellsOfCurrentMonth_td.locator('xpath=' + this.declaredEffort_xpath);
@@ -81,7 +81,7 @@ class ActivityReportPage extends Commonpage {
 
         //#region Forms
         this.addOtherActivitiesForm = this.page.getByText('Add Other Activities').locator('xpath=//ancestor::div[contains(@id,"q-portal--dialog")]');
-        this.anyForm = this.page.locator('div[id^="q-portal--dialog"]');
+        this.anyForm = this.page.locator('div[id^="q-portal--dialog"] .q-card');
         this.anyMenu = this.page.locator('div[id^="q-portal--menu"] > .q-menu')
         //#endregion Forms
 
@@ -280,6 +280,10 @@ class ActivityReportPage extends Commonpage {
     async clickOnAddButtonInOtherActivitiesForm() {
         await this.add_button.click();
     }
+
+    async pause(){
+        await this.page.pause();
+    }
     // #endregion Unit actions
 
     // #region Integrated actions
@@ -374,8 +378,11 @@ class ActivityReportPage extends Commonpage {
         }
     }
 
-    async verifyAddOtherActivitiesFormAppears() {
-        await expect(this.addOtherActivitiesForm).toBeAttached();
+    async verifyFormAppears(formTitle) {
+        if (formTitle)
+            await expect(this.anyForm.getByText(formTitle)).toBeAttached();
+        else
+            await expect(this.anyForm).toBeAttached();
     }
 
     async verifyAddButtonOnOtherActivitiesFormIsEnabled() {
@@ -399,6 +406,18 @@ class ActivityReportPage extends Commonpage {
         await expect(this.anyMenu.getByText(activityType)).toHaveCount(0);
 
         await this.OtherActivityTypes_combobox.click();
+    }
+
+    async verifyDayHasCorrectLabel(label){
+        await expect(this.dayCellsWithLabel).toHaveText(label);
+    }
+
+    async verifyDeclarationFieldNotExist(){
+        await expect(this.declarationFieldsMonthlyView).toHaveCount(0);
+    }
+
+    async verifyDeclarationFieldExist(){
+        await expect(this.declarationFieldsMonthlyView).toHaveCount(1);
     }
     // #endregion Unit verifications
 

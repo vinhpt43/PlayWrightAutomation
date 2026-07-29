@@ -61,7 +61,7 @@ class ActivityReportPage extends Commonpage {
         this.totalPerDay_xpath = '/div/div[3]';
         this.totalPerDay = this.dayCellsOfCurrentMonth_td.locator('xpath=' + this.totalPerDay_xpath);
 
-        this.expandProjectsList_button_xpath = 'td[1]//button//i[@class="q-icon"]';
+        this.expandProjectsList_button_xpath = 'td[1]/div[3]//button//i[@class="q-icon"]';
         this.expandProjectsList_button = this.weekRowsOnCalendar.locator('xpath=' + this.expandProjectsList_button_xpath);
 
         this.hasRejectedDeclarations_icon = this.page.locator('i[class="q-icon text-red"]');
@@ -211,7 +211,7 @@ class ActivityReportPage extends Commonpage {
     }
 
     async clickOnDeclaredEffortByIndexOnMonthlyView(index) {
-        await this.declaredEffort.nth(index - 1).click();
+        await this.declaredEffort.nth(index - 1).click({ button: 'right' });
     }
 
     async hoverOnDeclaredEffortByIndexOnMonthlyView(index) {

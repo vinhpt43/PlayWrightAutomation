@@ -28,7 +28,7 @@ When User hovers on rejected declarations icon
 Then Tooltip reads "2 rejected"
 
 
-@Scenario0303 @debug
+@Scenario0303
 Scenario: 0303_Verify Timesheet data is shown on Activity Report
 Given User is consultant
 And User has a full day PH

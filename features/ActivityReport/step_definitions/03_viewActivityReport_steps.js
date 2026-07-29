@@ -1,9 +1,9 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const testData = require('../../../utils/data/testData');
-const { updateDateOfTrackingOfTestData } = require('../../../utils/settings/AdaptTestData');
+// const { updateDateOfTrackingOfTestData } = require('../../../utils/settings/AdaptTestData');
 Given('User has a full day PH', async function () {
     const fakeAR = testData.PHfullDay;
-    updateDateOfTrackingOfTestData(fakeAR);
+    // updateDateOfTrackingOfTestData(fakeAR);
     await this.activityReportPage.alterActivityReportResult(fakeAR);
 });
 
